@@ -1,7 +1,9 @@
 #include <stdio.h>
 
 /**
- *No description its obvious
+ *Main - Entry point bro
+ *
+ *return - zero for success
  */
 
 int  main(void)
