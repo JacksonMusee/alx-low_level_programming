@@ -20,7 +20,7 @@ int main(void)
 
 	for (ifirst = 48; ifirst < 58; ifirst++)
 	{
-		for (i = 48; i < 58; I++)
+		for (i = 48; i < 58; i++)
 		{
 			j = i + 1;
 			jfirst = ifirst;
