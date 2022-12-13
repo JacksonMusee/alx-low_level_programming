@@ -15,6 +15,7 @@ int main(void)
 {
 	int nums;
 	int letter;
+
 	for (nums = '0'; nums <= '9'; nums++)
 	{
 		putchar(nums);
