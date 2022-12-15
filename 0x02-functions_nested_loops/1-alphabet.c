@@ -15,11 +15,11 @@ void print_alphabet(void)
 {
 	int i;
 
-	for (i = 'a'; i <= 'z'; i++)
+	for (i = 97; i <= 123; i++)
 	{
 		putchar(i);
 	}
-	putchar("\n");
+	putchar('\n');
 
 	return(0);
 }
