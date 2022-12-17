@@ -1,6 +1,11 @@
 #include <stdio.h>
 #include "main.h"
 
+/*
+ * print_alphabet_x10 - print alphabet 10 times on new lines
+ *
+ */
+
 void print_alphabet_x10(void)
 {
 	int i;
@@ -12,6 +17,6 @@ void print_alphabet_x10(void)
 		{
 			putchar(j);
 		}
-		putchar('\n')
+		putchar('\n');
 	}
 }
