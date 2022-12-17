@@ -6,7 +6,7 @@
  *
  * @c : The letter to be checked eg 'H'
  *
- *Return : integer on condition
+ *Return: integer on condition
  */
 
 int _isalpha(int c)
