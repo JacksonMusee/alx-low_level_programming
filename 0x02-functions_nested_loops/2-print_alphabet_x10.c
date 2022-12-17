@@ -4,6 +4,8 @@
 /*
  * print_alphabet_x10 - print alphabet 10 times on new lines
  *
+ * Description: Nothing
+ *
  */
 
 void print_alphabet_x10(void)
