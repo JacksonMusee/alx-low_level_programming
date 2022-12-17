@@ -2,7 +2,7 @@
 #include "main.h"
 
 /**
- * _islower : check lower
+ * _islower - check lower
  *
  *@c: This the character we want to check in single quotes eg 'H'
  *
