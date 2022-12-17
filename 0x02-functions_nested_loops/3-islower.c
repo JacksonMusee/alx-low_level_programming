@@ -4,6 +4,8 @@
 /**
  * _islower - check lower
  *
+ *@c: This the character we want to check in single quotes eg 'H'
+ *
  * Return: integer
  */
 
