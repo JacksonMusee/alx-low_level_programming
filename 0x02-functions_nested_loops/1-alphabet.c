@@ -2,22 +2,20 @@
 #include <stdio.h>
 
 /**
- *main - Entry point
+ *print_alphabet - Prints all abphabet in lowercase
  *
  *Description: Obvious
  *
- * Return: Always 0 (Success)
+ * Return: void
  */
 
 void print_alphabet(void)
 {
 	int i;
 
-	for (i = 97; i <= 123; i++)
+	for (i = 97; i <= 122; i++)
 	{
 		putchar(i);
 	}
 	putchar('\n');
-
-	return;
 }
