@@ -2,7 +2,6 @@
 #include <unistd.h>
 #include <time.h>
 #include <stdlib.h>
-#include "main.h"
 
 /**
  *main - Entry point
@@ -12,7 +11,7 @@
  * Return: Always 0 (Success)
  */
 
-void main(void)
+int main(void)
 {
 	printf("_putchar\n");
 
