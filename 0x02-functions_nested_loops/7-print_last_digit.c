@@ -24,7 +24,7 @@ int print_last_digit(int num)
 	}
 
 	last_dig = num % 10;
-	_putchar(last_dig) + 48;
+	_putchar(last_dig + 48);
 
 	return (last_dig);
 }
