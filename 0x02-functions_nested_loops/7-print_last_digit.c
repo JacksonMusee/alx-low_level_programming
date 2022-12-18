@@ -14,16 +14,17 @@ int print_last_digit(int num)
 {
 	int last_dig;
 	
-	if (num < 0)
+	last_dig = num % 10;
+
+	if (last_dig < 0)
 	{
-	num = -num;
+	last_dig = -last_dig;
 	}
 	else
 	{
-	num = num;
+	last_dig = last_dig;
 	}
 
-	last_dig = num % 10;
 	_putchar(last_dig + 48);
 
 	return (last_dig);
