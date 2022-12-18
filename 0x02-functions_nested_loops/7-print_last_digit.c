@@ -26,5 +26,5 @@ int print_last_digit(int num)
 	last_dig = num % 10;
 	_putchar(48 + last_dig);
 
-	return (48 + last_dig);
+	return (last_dig);
 }
