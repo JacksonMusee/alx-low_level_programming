@@ -24,9 +24,8 @@ void rev_string(char *s)
 
 	while (i >= 0 && j <= 9)
 	{
-	rd_s[j] = s[i];
+	s[i] = s[j];
 	i--;
 	j++;
 	}
-	s = rd_s;
 }
