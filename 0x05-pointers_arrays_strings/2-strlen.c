@@ -4,7 +4,6 @@
 /**
  *_strlen - get length
  *
- *@strlen: length
  *@s: String
  *
  *Return: see code
