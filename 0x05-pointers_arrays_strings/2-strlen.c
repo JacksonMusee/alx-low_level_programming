@@ -8,7 +8,7 @@
  *
  */
 
-int _strlen(char s)
+int _strlen(char *s)
 {
 	
 	int i;
@@ -16,7 +16,7 @@ int _strlen(char s)
 
 	i = 0;
 
-	while(s[i] != NULL)
+	while(*s[i] != NULL)
 	{
 	strlen = i+1;
 	i++;
