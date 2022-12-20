@@ -8,15 +8,15 @@
  *
  */
 
-int _strlen(char s)
+int _strlen(char *s)
 {
 	
 	int i;
 	int strlen;
-	char *str[] = {};
+	char *str;
 
 	i = 0;
-	str[] = s;
+	str = *s;
 
 	while(str[i])
 	{
