@@ -8,12 +8,12 @@
  *
  */
 
-int _strlen(char *s)
+int _strlen(char s)
 {
 	
 	int i;
 	int strlen;
-	char str[] = *s;
+	char str[] = s;
 
 	i = 0;
 
