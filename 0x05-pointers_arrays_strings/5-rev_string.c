@@ -21,9 +21,9 @@ void rev_string(char *s)
 	i = i-1;
 	j = 0;
 
-	while (i >= 0 && j <= 9)
+	while (j <= 9)
 	{
-	s[i] = s[j];
+	s[j] = s[i];
 	i--;
 	j++;
 	}
