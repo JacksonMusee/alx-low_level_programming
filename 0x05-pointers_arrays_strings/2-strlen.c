@@ -2,10 +2,11 @@
 #include "main.h"
 
 /**
+ *_strlen - get length
  *
+ *@strlen - length
  *
- *
- *
+ *Return: see code
  */
 
 int _strlen(char *s)
@@ -14,7 +15,7 @@ int _strlen(char *s)
 
 	strlen = 0;
 
-	while(*s != '\0')
+	while (*s != '\0')
 	{
 	s++;
 	strlen++;
