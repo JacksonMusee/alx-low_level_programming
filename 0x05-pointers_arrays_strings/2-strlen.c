@@ -13,10 +13,9 @@ int _strlen(char *s)
 	
 	int i;
 	int strlen;
-	char str[];
+	char str[] = &s;
 
 	i = 0;
-	str[32] = &s;
 
 	while(str[i])
 	{
