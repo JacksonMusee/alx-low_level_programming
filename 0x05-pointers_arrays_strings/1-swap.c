@@ -6,6 +6,8 @@
  *
  *Return: void
  *
+ * @a: integer
+ * @b: another one
  */
 
 void swap_int(int *a, int *b)
