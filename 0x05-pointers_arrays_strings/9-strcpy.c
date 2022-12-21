@@ -6,6 +6,8 @@
  *
  *@dest: arg
  *@src: arg
+ *
+ * Return: destination
  */
 
 char *_strcpy(char *dest, char *src)
