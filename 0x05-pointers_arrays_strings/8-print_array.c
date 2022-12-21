@@ -2,10 +2,10 @@
 #include "main.h"
 
 /**
+ *print_array - The given function
  *
- *
- *
- *
+ *@a: interger
+ *@n: another int
  */
 
 void print_array(int *a, int n)
