@@ -48,7 +48,7 @@ sum = checksuum(s);
 if (sum == 2772)
 {
 flag = 1;
-printf("%s", s)
+printf("%s", s);
 }
 }
 return (0);
