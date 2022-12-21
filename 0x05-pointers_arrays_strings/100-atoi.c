@@ -2,9 +2,9 @@
 #include "main.h"
 
 /**
+ *_atoi - The fundtion
  *
- *
- *
+ *@s:arg
  *
  *
  */
@@ -28,7 +28,7 @@ int _atoi(char *s)
 	boolean = 1;
 	}
 	else if (boolean == 1)
-	break
+	break;
 	i++;
 	}
 	result *= minus;
