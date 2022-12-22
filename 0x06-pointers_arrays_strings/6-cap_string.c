@@ -1,37 +1,34 @@
-#include <stdio.h>
-#include "main.h"
-
+#include "holberton.h"
 /**
- *cap_string - see code
- *
- *@str: string
- *
- *Return: caped string
+ * cap_string - capitalize all words of string
+ * Return: void
+ * @s: string
  */
-
-char *cap_string(char *str)
+char *cap_string(char *s)
 {
-	int i = 1;
+	int i = 0, j = 0;
 
-	while (str[i] != '\0')
+	char seps[] = {32, 10, 9, 44, 59, 46, 33, 63, 34, 40, 41, 123, 125};
+
+	int size = sizeof(seps) / sizeof(seps[0]);
+
+	while (s[i] != 0)
 	{
-	if (str[0] >= 97 && str[0] <= 122)
-	{
-	str[0] = str[0] - 32;
-	}
-	if ((str[i] >= 97 && str[i] <= 122)  &&
-	(str[i - 1] != 45) && (!(str[i - 1] >= 65 && str[i - 1] <= 90)) &&
-	(!(str[i - 1] >= 97 && str[i - 1] <= 122)) &&
-	(!(str[i - 1] >= 48 && str[i - 1] <= 57)))
-	{
-	str[i] = str[i] - 32;
-	}
-	if (str[i] == 9)
-	{
-	str[i] = 32;
-	}
-	i++;
+		char c = s[i];
+
+		for (j = 0; j < size; j++)
+		{
+			if (c == seps[j] && s[i + 1] >= 'a' && s[i + 1] <= 'z')
+			{
+				s[i + 1] = 'A' + (s[i + 1] - 'a');
+				break;
+			}
+		}
+		i++;
 	}
 
-	return (str);
+	if (s[0] >= 'a' && s[0] <= 'z')
+		s[0] = 'A' + (s[0] - 'a');
+
+	return (s);
 }
