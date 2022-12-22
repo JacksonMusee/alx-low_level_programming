@@ -6,7 +6,9 @@
  *
  *@str: the string
  *
+ * Return: Modified string
  */
+
 char *string_toupper(char *str)
 {
 	int i = 0;
