@@ -1,89 +1,68 @@
 #include "main.h"
 
 /**
-* infinite_add - adds two integers stored as strings
+* _strlen - returns the length of a string
+* @s: the string whose length to check
 *
-* @n1: first integer string to add
-* @n2: second integer string to add
-* @r: array to store resulting string in
-* @size_r: size of array r
+* Return: integer length of string
+*/
+int _strlen(char *s)
+{
+int i = 0;
+
+while (*s++)
+i++;
+return (i);
+}
+
+/**
+* rev_string - reverses a string
+* @s: the string to reverse
 *
-* Return: the summed string in r. If r is too small for the result,
-* return 0;
+* Return: void
+*/
+char *rev_string(char *s)
+{
+int l = _strlen(s), i = 0;
+char t;
+
+for (i = 0; i < l / 2; i++)
+{
+t = s[l - i - 1];
+s[l - i - 1] = s[i];
+s[i] = t;
+}
+return (s);
+}
+
+/**
+* infinite_add - adds arbitrarily long string of digits
+* @n1: the first digit string
+* @n2: the second digit string
+* @r: the result buffer
+* @size_r: the size of result buffer
+*
+* Return: char pointer to buffer
 */
 char *infinite_add(char *n1, char *n2, char *r, int size_r)
 {
-int carry = 0, index = 0, index2;
-char *s1 = n1, *s2 = n2;
+int l1 = _strlen(n1), l2 = _strlen(n2), i = 0, a, b, c = 0;
 
-while (*s1 != 0)
-s1++;
-while (*s2 != 0)
-s2++;
-size_r--;
-r[size_r] = 0;
-s1--;
-s2--;
-while (s2 != n2 - 1 && s1 != n1 - 1)
+for (l1--, l2--, size_r--; l1 >= 0 || l2 >= 0 || c; l1--, l2--, i++)
 {
-r[index] = *s2 - '0' + *s1 + carry;
-carry = 0;
-if (r[index] > '9')
-{
-carry++;
-r[index] -= 10;
-}
-index++;
-s2--;
-s1--;
-if (size_r == index && (s1 != n1 - 1 || s2 != n2 - 1 || carry == 1))
+if (i >= size_r)
 return (0);
+a = 0;
+b = 0;
+if (l1 >= 0)
+a = n1[l1] - '0';
+if (l2 >= 0)
+b = n2[l2] - '0';
+a = a + b + c;
+c = a / 10;
+a %= 10;
+r[i] = a + '0';
 }
-while (s1 != n1 - 1)
-{
-r[index] = *s1 + carry;
-carry = 0;
-if (r[index] > '9')
-{
-carry = 1;
-r[index] -= 10;
-}
-s1--;
-index++;
-if (size_r == index && (s1 != n1 - 1 ||  carry == 1))
-return (0);
-}
-while (s2 != n2 - 1)
-{
-r[index] = *s2 + carry;
-carry = 0;
-if (r[index] > '9')
-{
-carry = 1;
-r[index] -= 10;
-}
-s2--;
-index++;
-if (size_r == index && (s2 != n2 - 1 || carry == 1))
-return (0);
-}
-if (carry == 1)
-{
-r[index] = '1';
-r[index + 1] = 0;
-}
-else
-{
-r[index--] = 0;
-}
-index2 = 0;
-while (index2 <= index)
-{
-carry = r[index];
-r[index] = r[index2];
-r[index2] = carry;
-index--;
-index2++;
-}
-return (r);
+r[i] = '\0';
+return (rev_string(r));
 }
