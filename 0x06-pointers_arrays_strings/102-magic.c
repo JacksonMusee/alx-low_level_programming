@@ -1,9 +1,4 @@
 #include <stdio.h>
-/**
-* main - see code
-*
-* Return: Answer
-*/
 
 int main(void)
 {
