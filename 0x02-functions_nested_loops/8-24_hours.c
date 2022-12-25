@@ -1,23 +1,15 @@
 #include "main.h"
-
 /**
  *jack_bauer - print jack's long day
- *
- *
- *
  */
-
 void jack_bauer(void)
 {
-	int hour;
-	int min;
+	int hour = 0;
+	int min = 0;
 	int fDigit;
 	int secDigit;
 	int mFDigit;
 	int mSecDigit;
-
-	hour = 0;
-	min = 0;
 
 	while (hour < 24)
 	{
@@ -30,7 +22,7 @@ void jack_bauer(void)
 	}
 	else
 	{
-	fDigit = (hour/10) % 10;
+	fDigit = (hour / 10) % 10;
 	secDigit = hour % 10;
 	_putchar(fDigit + '0');
 	_putchar(secDigit + '0');
@@ -43,7 +35,7 @@ void jack_bauer(void)
 	}
 	else
 	{
-	mFDigit = (min/10) % 10;
+	mFDigit = (min / 10) % 10;
 	mSecDigit = min % 10;
 	_putchar(mFDigit  + '0');
 	_putchar(mSecDigit + '0');
