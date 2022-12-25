@@ -48,8 +48,8 @@ void jack_bauer(void)
 	_putchar(mFDigit  + '0');
 	_putchar(mSecDigit + '0');
 	}
-	}
 	_putchar('\n');
 	}
 	hour++;
+	}
 }
