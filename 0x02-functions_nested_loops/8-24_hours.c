@@ -49,7 +49,7 @@ void jack_bauer(void)
 	_putchar(mSecDigit + '0');
 	}
 	}
+	_putchar('\n');
 	}
-
-
+	hour++;
 }
