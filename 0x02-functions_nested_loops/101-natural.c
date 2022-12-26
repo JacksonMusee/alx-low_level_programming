@@ -1,10 +1,11 @@
+#include <stdio.h>
 /**
  *main - see code
  *
  *
  */
 
-void main(void)
+int main(void)
 {
 	int sum;
 	int i = 1;
@@ -18,4 +19,6 @@ void main(void)
 		i++;
 	}
 	printf("%d", sum);
+
+	return (0);
 }
