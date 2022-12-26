@@ -15,7 +15,7 @@ int main(void)
 	long int z;
 	int count = 2;
 
-	printf("%ld, %d, ", x, y);
+	printf("%ld, %ld, ", x, y);
 	while (count < 98)
 	{
 	z = x + y;
