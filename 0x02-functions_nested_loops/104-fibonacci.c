@@ -10,16 +10,16 @@
 
 int main(void)
 {
-	long int x = 1;
-	long int y = 2;
-	long int z;
-	int count = 2;
+	unsigned long int x = 1;
+	unsigned long int y = 2;
+	unsigned long int z;
+	unsigned int count = 2;
 
-	printf("%ld, %ld, ", x, y);
+	printf("%lu, %lu, ", x, y);
 	while (count < 98)
 	{
 	z = x + y;
-	printf("%ld", z);
+	printf("%lu", z);
 	if (count < 97)
 	{
 	printf(", ");
