@@ -2,6 +2,8 @@
 /**
  *print_to_98 - See code
  *@n: First number
+ *
+ * print - help print numbers
  */
 void print_to_98(int n)
 {
@@ -14,7 +16,7 @@ void print_to_98(int n)
 		{
 		cn += i;
 		print(cn);
-		if(cn < 98)
+		if (cn < 98)
 		{
 		 _putchar(',');
 		 _putchar(' ');
