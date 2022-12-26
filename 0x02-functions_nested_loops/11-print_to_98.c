@@ -7,7 +7,6 @@ void print_to_98(int n)
 {
 	int cn = n;
 	int i;
-	int lstDgt;
 
 	if  (cn  <= 98)
 	{
