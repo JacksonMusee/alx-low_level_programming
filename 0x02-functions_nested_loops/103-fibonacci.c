@@ -1,4 +1,4 @@
-#nclude <stdio.h>
+#include <stdio.h>
 
 /**
  *main - sum Fibonacci terms not exceeding 4,000,000
