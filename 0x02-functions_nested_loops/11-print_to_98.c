@@ -7,6 +7,7 @@ void print_to_98(int n)
 {
 	int cn = n;
 	int i;
+	int printedCn;
 
 	if  (cn  <= 98)
 	{
