@@ -23,7 +23,7 @@ void print_to_98(int n)
 	}
 	else
 	{
-		for (i = 0; i < n - 98; i++)
+		for (i = 0; i <= n - 98; i++)
 		{
 		cn -= i;
 		print(cn);
