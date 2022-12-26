@@ -15,13 +15,12 @@ void print_to_98(int n)
 		{
 		cn += i;
 		print(cn);
-		printedCn = cn;
-		cn = n;
-		}
-		if (printedCn < 98)
+		if(cn < 98)
 		{
-		_putchar(',');
-		_putchar(' ');
+		 _putchar(',');
+		 _putchar(' ');
+		}
+		cn = n;
 		}
 	}
 	else
@@ -30,13 +29,12 @@ void print_to_98(int n)
 		{
 		cn -= i;
 		print(cn);
-		printedCn = cn;
-		cn = n;
-		}
-		if (printedCn > 98)
+		if (cn > 98)
 		{
 		_putchar(',');
 		_putchar(' ');
+		}
+		cn = n;
 		}
 	}
 	_putchar('\n');
