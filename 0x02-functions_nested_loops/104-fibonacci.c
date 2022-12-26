@@ -13,7 +13,7 @@ int main(void)
 	unsigned long int x = 1;
 	unsigned long int y = 2;
 	unsigned long int z;
-	unsigned int count = 2;
+	int count = 2;
 
 	printf("%lu, %lu, ", x, y);
 	while (count < 98)
