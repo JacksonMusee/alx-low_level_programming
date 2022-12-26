@@ -14,9 +14,10 @@ void print_to_98(int n)
 		{
 		cn += i;
 		print(cn);
+		printedCn = cn;
 		cn = n;
 		}
-		if (cn < 98)
+		if (printedCn < 98)
 		{
 		_putchar(',');
 		_putchar(' ');
@@ -28,9 +29,10 @@ void print_to_98(int n)
 		{
 		cn -= i;
 		print(cn);
+		printedCn = cn;
 		cn = n;
 		}
-		if (cn > 98)
+		if (printedCn > 98)
 		{
 		_putchar(',');
 		_putchar(' ');
