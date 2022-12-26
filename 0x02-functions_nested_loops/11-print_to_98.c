@@ -3,7 +3,6 @@
 *print_to_98 - See code
 *@n: First number
 *
-* print - help print numbers
 */
 void print_to_98(int n)
 {
@@ -41,7 +40,11 @@ cn = n;
 _putchar('\n');
 }
 
-
+/**
+ *print - help print the number using putchar
+ *
+ *@n: The number to print
+ */
 void print(int n)
 {
 if (n < 0)
