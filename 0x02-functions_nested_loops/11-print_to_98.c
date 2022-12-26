@@ -18,6 +18,7 @@ void print_to_98(int n)
 		if (cn < 98)
 		{
 		_putchar(',');
+		_putchar(' ');
 		}
 	}
 	else
@@ -30,6 +31,7 @@ void print_to_98(int n)
 		if (cn > 98)
 		{
 		_putchar(',');
+		_putchar(' ');
 		}
 	}
 }
