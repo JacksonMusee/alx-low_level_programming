@@ -5,6 +5,8 @@
  *
  *@n - maximum number
  */
+void print(int);
+
 void print_times_table(int n)
 {
 	int i;
