@@ -2,7 +2,7 @@
 /**
  *main - see code
  *
- *
+ *Return: zero
  */
 
 int main(void)
@@ -18,7 +18,7 @@ int main(void)
 		}
 		i++;
 	}
-	printf("%d", sum);
+	printf("%d\n", sum);
 
 	return (0);
 }
