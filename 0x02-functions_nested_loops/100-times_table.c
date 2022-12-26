@@ -3,9 +3,8 @@
 /**
  *print_times_table - print times
  *
- *@n - maximum number
+ *@n: maximum number
  */
-void print(int);
 
 void print_times_table(int n)
 {
@@ -37,7 +36,10 @@ void print_times_table(int n)
 		_putchar(' ');
 		}
 		print(product);
+		if (j < n)
+		{
 		_putchar(',');
+		}
 		}
 		_putchar('\n');
 	}
