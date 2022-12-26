@@ -13,11 +13,11 @@ int main(void)
 	long int z;
 	int count = 2;
 
-	printf("%d, %d, ", x, y);
+	printf("%ld, %ld, ", x, y);
 	while (count < 50)
 	{
 	z = x + y;
-	printf("%d", z);
+	printf("%ld", z);
 	if (count < 49)
 	{
 	printf(", ");
