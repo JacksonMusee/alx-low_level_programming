@@ -10,10 +10,11 @@ void print_to_98(int n)
 
 	if  (cn  <= 98)
 	{
-		for (i = 0; i <= 98 - n; i++)
+		for (i = 0; i <= (98 - n); i++)
 		{
 		cn += i;
 		print(cn);
+		cn = n;
 		}
 		if (cn < 98)
 		{
@@ -23,10 +24,11 @@ void print_to_98(int n)
 	}
 	else
 	{
-		for (i = 0; i <= n - 98; i++)
+		for (i = 0; i <= (n - 98); i++)
 		{
 		cn -= i;
 		print(cn);
+		cn = n;
 		}
 		if (cn > 98)
 		{
