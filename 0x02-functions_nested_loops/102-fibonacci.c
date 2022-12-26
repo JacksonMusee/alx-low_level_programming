@@ -26,5 +26,6 @@ int main(void)
 	y = z;
 	count++;
 	}
+	putchar('\n');
 return (0);
 }
