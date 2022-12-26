@@ -20,7 +20,7 @@ int main(void)
 	{
 	z = x + y;
 	printf("%ld", z);
-	if (count < 97)
+	if (count < 96)
 	{
 	printf(", ");
 	}
