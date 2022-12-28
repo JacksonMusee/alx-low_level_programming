@@ -10,9 +10,9 @@
 
 int main(void)
 {
-	unsigned long int x = 1;
-	unsigned long int y = 2;
-	unsigned long int z;
+	unsigned long long int x = 1;
+	unsigned long long int y = 2;
+	unsigned long long int z;
 	int count = 2;
 
 	printf("%lu, %lu, ", x, y);
