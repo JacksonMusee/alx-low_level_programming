@@ -19,8 +19,8 @@ void more_numbers(void)
 		{
 		if (j >= 10)
 		{
-		base = i / 10;
-		sec = i % 10;
+		base = j / 10;
+		sec = j % 10;
 		}
 		else
 		{
