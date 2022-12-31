@@ -9,7 +9,7 @@ void fizz_buzz(void)
 {
 	int i;
 
-	for (i = 0; i < 100; i++)
+	for (i = 1; i <= 100; i++)
 	{
 	if ((i % 3 == 0) && (i % 5 == 0))
 	{
@@ -25,8 +25,20 @@ void fizz_buzz(void)
 	}
 	else
 	{
-	printf("%d ", i)
+	printf("%d ", i);
 	}
 	}
-	_putchar('\n');
+	printf("\n");
+}
+
+/**
+ *main - entry
+ *
+ */
+
+int main(void)
+{
+fizz_buzz();
+
+return (0);
 }
