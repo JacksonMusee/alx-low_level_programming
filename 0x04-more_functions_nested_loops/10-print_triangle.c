@@ -3,7 +3,7 @@
 /**
  *print_triangle - See code
  *
- *
+ *@size: Size
  *
  *
  */
@@ -11,7 +11,7 @@
 void print_triangle(int size)
 {
 	int i;
-	int j;
+	int j = 0;
 
 	if (size > 0)
 	{
