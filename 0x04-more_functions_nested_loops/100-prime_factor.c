@@ -33,27 +33,25 @@ int check_if_prime(long int x)
 int main(void)
 {
 	long int i;
-	long int quotient = 612852475143;
+	long int x = 612;
 	int i_is_prime;
 	long int current_p_factor;
-	long int largest_p_factor;
+	long int largest_p_factor = 1;
 
-	for (i = 2; i <= quotient; i++)
+	for (i = 2; i < x; i++)
 	{
 		i_is_prime = check_if_prime(i);
 
-		if (quotient % i == 0 && i_is_prime == 1)
+		if (x % i == 0 && i_is_prime == 1)
 		{
 		current_p_factor = i;
-		quotient = quotient / i;
 		}
 		if (current_p_factor > largest_p_factor)
 		{
 		largest_p_factor = current_p_factor;
 		}
-		printf("%ld", largest_p_factor);
 	}
-	printf("%ld", largest_p_factor);
+	printf("%ld\n", largest_p_factor);
 
 	return (0);
 }
