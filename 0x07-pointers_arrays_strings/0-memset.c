@@ -8,7 +8,7 @@
  *@b: Character to be filled
  *@n: number of  bytes
  *
- * return: Adress of s
+ *Return: Adress of s
  */
 
 char *_memset(char *s, char b, unsigned int n)
