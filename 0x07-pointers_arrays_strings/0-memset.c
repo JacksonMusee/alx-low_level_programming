@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stdio.h>
 
 /**
  *_memset - Fill mem
@@ -12,12 +13,12 @@
 
 char *_memset(char *s, char b, unsigned int n)
 {
-	int i;
+	unsigned int i;
 
-	for (i = 1; i < n; i++)
+	for (i = 1; i < (n * sizeof(char)); i++)
 	{
 	*s = b;
-	s += i;
+	s = s + sizeof(char);
 	}
 
 	return (s);
