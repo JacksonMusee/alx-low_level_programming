@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stddef.h>
 
 /**
  *_strchr - see code
@@ -10,6 +11,8 @@
 
 char *_strchr(char *s, char c)
 {
+	char *r;
+
 	while (*s != '\0')
 	{
 	if (*s == c)
