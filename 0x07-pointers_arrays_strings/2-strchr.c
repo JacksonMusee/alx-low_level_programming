@@ -1,5 +1,5 @@
 #include "main.h"
-#include <stddef.h>
+#include <stdio.h>
 
 /**
  *_strchr - see code
@@ -11,22 +11,17 @@
 
 char *_strchr(char *s, char c)
 {
-	char *r;
 
-	while (*s != '\0')
+	while (*s == c && *s != '\0')
 	{
-	if (*s == c)
-	{
-	r = s;
-	break;
-	}
 	s++;
 	}
-
-	if (*s == '\0')
+	if (*s == c)
 	{
-	r = NULL;
+	return (s);
 	}
-
-	return (r);
+	else
+	{
+	return (NULL);
+	}
 }
