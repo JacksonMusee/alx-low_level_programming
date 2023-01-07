@@ -19,15 +19,15 @@ unsigned int _strspn(char *s, char *accept)
 		{
 		accept++;
 		}
-		if (*accept == *s)
-		{
-		len++;
-		}
-		else
-		{
-		break;
-		}
-		accept = accept_origi;
+	if (*accept == *s)
+	{
+	len++;
+	}
+	else
+	{
+	break;
+	}
+	accept = accept_origi;
 	s++;
 	}
 	return (len);
