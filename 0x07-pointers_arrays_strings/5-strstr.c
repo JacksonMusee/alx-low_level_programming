@@ -18,7 +18,8 @@ char *_strstr(char *haystack, char *needle)
 	{
 	return (haystack);
 	}
-
+	else
+	{
 	while (*haystack != '\0')
 	{
 		while (*haystack != *needle)
@@ -44,4 +45,5 @@ char *_strstr(char *haystack, char *needle)
 		haystack++;
 	}
 	return (first_occ);
+}
 }
