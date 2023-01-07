@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stdio.h>
 
 /**
  *_strpbrk - See code
@@ -11,20 +12,24 @@
 char *_strpbrk(char *s, char *accept)
 {
 	char *r = NULL;
-	char *s_origi = s;
+	char *accept_origi = accept;
 
-	while (*accept != '\0')
+	while (*s != '\0')
 	{
-		while (*accept != *s && *s != '\0')
+		while (*accept != *s && *accept != '\0')
 		{
-		s++;
+		accept++;
 		}
 	if (*accept == *s)
 	{
 	r = s;
+	break;
 	}
-	s = s_origi;
-	accept++;
+	else
+	{
+	accept = accept_origi;
+	}
+	s++;
 	}
 	return (r);
 }
