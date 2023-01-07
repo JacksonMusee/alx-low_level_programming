@@ -12,7 +12,7 @@
 char *_strstr(char *haystack, char *needle)
 {
 	char *first_occ = NULL;
-	char *needle_origi;
+	char *needle_origi = needle;
 
 	while (*haystack != '\0')
 	{
@@ -20,11 +20,11 @@ char *_strstr(char *haystack, char *needle)
 		{
 		haystack++;
 		}
-		if (*hastack == *needle)
+		if (*haystack == *needle)
 		{
 		first_occ = haystack;
 
-		while (*hastack == *needle && *haystack != '\0' && *needle != '\0')
+		while (*haystack == *needle && *haystack != '\0' && *needle != '\0')
 		{
 		haystack++;
 		needle++;
