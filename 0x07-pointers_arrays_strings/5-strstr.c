@@ -39,10 +39,9 @@ char *_strstr(char *haystack, char *needle)
 		{
 		break;
 		}
-		haystack = first_occ;
+		haystack = first_occ + 1;
 		needle = needle_origi;
 		}
-		haystack++;
 	}
 	return (first_occ);
 }
