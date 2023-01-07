@@ -14,7 +14,7 @@ char *_strstr(char *haystack, char *needle)
 	char *first_occ = NULL;
 	char *needle_origi = needle;
 
-	if (!needle)
+	if (needle == NULL)
 	{
 	return (haystack);
 	}
