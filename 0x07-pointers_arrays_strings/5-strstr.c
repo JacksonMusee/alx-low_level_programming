@@ -11,7 +11,7 @@
 
 char *_strstr(char *haystack, char *needle)
 {
-	char *first_occ = NULL;
+	char *first_occ;
 	char *needle_origi = needle;
 
 	if (needle[0] == '\0')
@@ -39,11 +39,13 @@ char *_strstr(char *haystack, char *needle)
 		{
 		break;
 		}
-		haystack = first_occ;
+		else
+		{
+		first_occ = NULL;
+		}
 		needle = needle_origi;
 		}
 	haystack++;	
-
 	}
 	return (first_occ);
 }
