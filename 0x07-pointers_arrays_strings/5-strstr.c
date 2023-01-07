@@ -1,17 +1,14 @@
 #include "main.h"
 #include <stdio.h>
-
 /**
  *_strstr - Get first occurrennce of a substring
  *@haystack: Man string
  *@needle: Substring
- *
  *Return: Pointer to first occurrence of sub string
  */
-
 char *_strstr(char *haystack, char *needle)
 {
-	char *first_occ;
+	char *first_occ = NULL;
 	char *needle_origi = needle;
 
 	if (needle[0] == '\0')
@@ -39,16 +36,13 @@ char *_strstr(char *haystack, char *needle)
 		{
 		break;
 		}
-		else
-		{
 		haystack = first_occ;
 		needle = needle_origi;
-		}
 		}
 	if (*haystack != '\0')
 	{
 	haystack++;
-	}	
+	}
 	}
 	return (first_occ);
 }
