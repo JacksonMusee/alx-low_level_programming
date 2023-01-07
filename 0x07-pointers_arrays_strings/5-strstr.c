@@ -41,11 +41,14 @@ char *_strstr(char *haystack, char *needle)
 		}
 		else
 		{
-		first_occ = NULL;
-		}
+		haystack = first_occ;
 		needle = needle_origi;
 		}
-	haystack++;	
+		}
+	if (*haystack != '\0')
+	{
+	haystack++;
+	}	
 	}
 	return (first_occ);
 }
