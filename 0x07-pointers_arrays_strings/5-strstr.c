@@ -38,11 +38,8 @@ char *_strstr(char *haystack, char *needle)
 		{
 		break;
 		}
-		else
-		{
 		haystack = first_occ;
 		needle = needle_origi;
-		}
 		}
 		haystack++;
 	}
