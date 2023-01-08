@@ -11,15 +11,19 @@ void print_diagsums(int *a, int size)
 {
 	int sum1 = 0;
 	int sum2 = 0;
-	int i;
+	int i = 0;
+	int end_idx = (size * size) - 1;
+	int step = size + 1;
+	int step2 = size - 1;
 
-	for (i = 0; i < size; i++)
+	for (i = 0; i <= end_idx; i += step)
 	{
-	sum1 += a[i][i];
+	sum1 += a[i];
 	}
-	for (i = size; i >= 0; i--)
+
+	for (i = end_idx - step2; i >= step2; i -= step2)
 	{
-	sum2 += a[i][i];
+	sum2 += a[i];
 	}
-	printf("%d, %d", sum1, sum2)
+	printf("%d, %d\n", sum1, sum2);
 }
