@@ -9,5 +9,5 @@
 
 void set_string(char **s, char *to)
 {
-	*s1 = &to;
+	*s = to;
 }
