@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- *void _print_rev_recursion - Print string
+ *_print_rev_recursion - Print string
  *
  *@s: Pointer to a string
  *
@@ -18,5 +18,4 @@ void _print_rev_recursion(char *s)
 	s++;
 	_print_rev_recursion(s);
 	_putchar(c);
-	_putchar('\n');
 }
