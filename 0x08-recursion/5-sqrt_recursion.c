@@ -13,6 +13,7 @@ int _sqrt_recursion(int n)
 {
 	const int num = n;
 	int sqrt = n;
+	int r;
 
 	if (sqrt * sqrt == num)
 	{
