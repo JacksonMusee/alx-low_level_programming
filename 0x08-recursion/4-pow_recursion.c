@@ -6,15 +6,17 @@
  *@x: number
  *@y: power
  *
- *Return - return x power y. return -1 when y<0
+ *Return: return x power y. return -1 when y<0
  *
  */
 
 int _pow_recursion(int x, int y)
 {
+	int pow;
+
 	if (y == 0)
 	{
-	return (1);	
+	return (1);
 	}
 
 	if (y < 0)
@@ -23,6 +25,7 @@ int _pow_recursion(int x, int y)
 	}
 
 	y--;
+	pow = x * _pow_recursion(x, y);
 
-	return (x * _pow_recursion(x, y));
+	return (pow);
 }
