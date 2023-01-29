@@ -12,18 +12,19 @@
 int _sqrt_recursion(int n)
 {
 	int num = n - 1;
+	int sqrt;
 
 	if (num * num == n)
 	{
-	return (num);
+	sqrt = num;
 	}
 
 	if (num <= 1)
 	{
-	return (-1);
+	sqrt = (-1);
 	}
 
 	_sqrt_recursion(num);
 
-	return;
+	return (sqrt);
 }
