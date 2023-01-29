@@ -19,7 +19,7 @@ int _sqrt_recursion(int n)
 	return (sqrt);
 	}
 
-	if (num <= 0 || sqrt < 1)
+	if (num <= 0 || sqrt <= 1)
 	{
 	return (-1);
 	}
