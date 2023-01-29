@@ -12,19 +12,20 @@
 int _sqrt_recursion(int n)
 {
 	const int num = n;
-	long int sqrt = n;
+	int sqrt = n;
 
 	if (sqrt * sqrt == num)
 	{
 	return (sqrt);
 	}
 
-	if (num <= 0 || sqrt <= 1)
+	if (num <= 0 || sqrt <= 0)
 	{
 	return (-1);
 	}
 
 	sqrt--;
+	r = _sqrt_recursion(sqrt);
 
-	return(_sqrt_recursion(sqrt));
+	return(r);
 }
