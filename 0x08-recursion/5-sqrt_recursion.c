@@ -11,20 +11,22 @@
 
 int _sqrt_recursion(int n)
 {
-	int num = n - 1;
-	int sqrt;
+	const int num = n;
+	int sqrt = 1;
 
-	if (num * num == n)
+	if (sqrt * sqrt == num)
 	{
-	sqrt = num;
-	}
-
-	if (num <= 1)
-	{
-	sqrt = (-1);
-	}
-
-	_sqrt_recursion(num);
-
 	return (sqrt);
+	}
+
+	if (num <= 0 || sqrt >= num)
+	{
+	return (-1);
+	}
+
+	sqrt++;
+
+	_sqrt_recursion(sqrt);
+
+	return (0);
 }
