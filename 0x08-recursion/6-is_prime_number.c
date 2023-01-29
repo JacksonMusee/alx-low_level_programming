@@ -13,7 +13,7 @@ int is_prime_number(int n)
 	const int num = n;
 
 	n--;
-	if (num % n == 0 || num < 2)
+	if (num < 2 || num % n == 0)
 	{
 	return (0);
 	}
