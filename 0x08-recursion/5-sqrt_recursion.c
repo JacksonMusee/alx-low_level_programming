@@ -26,12 +26,14 @@ int _sqrt_recursion(int n)
 	return (root);
 	}
 
+	if (root == 0)
+	{
+	retur (0);
+	}
+
 	root--;
 
-	if (root > 0)
-	{
 	ans = 0 + _sqrt_recursion(root);
-	}
 
 	return (ans);
 }
