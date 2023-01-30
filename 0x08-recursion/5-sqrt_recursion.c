@@ -11,10 +11,10 @@
 
 int _sqrt_recursion(int n)
 {
-	const int num = n;
-	int root = n;
+	const unsigned int num = n;
+	unsigned int root = n;
 	unsigned long int root2 = root * root;
-	int ans;
+	unsigned int ans;
 
 	if ((num < 0) || (root <= 0))
 	{
