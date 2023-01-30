@@ -12,21 +12,26 @@
 int _sqrt_recursion(int n)
 {
 	const int num = n;
-	int sqrt = n;
-	int r;
+	int root = 0;
+	int ans;
 
-	if (sqrt * sqrt == num)
-	{
-	return (sqrt);
-	}
-
-	if (num <= 0 || sqrt <= 0)
+	if (num < 0)
 	{
 	return (-1);
 	}
 
-	sqrt--;
-	r = _sqrt_recursion(sqrt);
+	if ((root * root) == num)
+	{
+	return (root);
+	}
 
-	return(r);
+	if ((root * root) > num)
+	{
+	return (-1);
+	}
+
+	root++;
+	ans = _sqrt_recursion(root);
+
+	return(ans);
 }
