@@ -17,7 +17,7 @@ int _sqrt_recurson_helper(int n, int i)
 	if (i * i > n)
 	return (-1);
 
-	return (_sqrt_recurson_helper(int n, int i++));
+	return (_sqrt_recurson_helper(n, i++));
 }
 
 /**
@@ -33,5 +33,5 @@ int _sqrt_recursion(int n)
 	if (n < 0)
 	return (-1)
 
-	return (_sqrt_recurson_helper(int n, 0);
+	return (_sqrt_recurson_helper(n, 0);
 }
