@@ -18,16 +18,19 @@ int _sqrt_recursion(int n)
 	if (num < 0)
 	{
 	return (-1);
+	 break;
 	}
 
 	if ((root * root) == num)
 	{
 	return (root);
+	 break;
 	}
 
 	if ((root * root) > num)
 	{
 	return (-1);
+	break;
 	}
 
 	root++;
