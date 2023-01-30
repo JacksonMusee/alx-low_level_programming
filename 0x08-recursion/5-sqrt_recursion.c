@@ -13,6 +13,7 @@ int _sqrt_recursion(int n)
 {
 	const int num = n;
 	int root = n;
+	long int root2 = root * root;
 	int ans;
 
 	if ((num < 0) || (root < 0))
@@ -20,7 +21,7 @@ int _sqrt_recursion(int n)
 	return (-1);
 	}
 
-	if ((root * root) == num)
+	if (root2 == num)
 	{
 	return (root);
 	}
@@ -29,5 +30,5 @@ int _sqrt_recursion(int n)
 
 	ans = 0 + _sqrt_recursion(root);
 
-	return(ans);
+	return (ans);
 }
