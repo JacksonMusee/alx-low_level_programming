@@ -16,7 +16,7 @@ int _sqrt_recursion(int n)
 	unsigned long int root2 = root * root;
 	unsigned int ans;
 
-	if ((num < 0) || (root <= 0))
+	if (root = 0)
 	{
 	return (-1);
 	}
