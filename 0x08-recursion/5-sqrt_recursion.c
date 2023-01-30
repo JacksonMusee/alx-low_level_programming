@@ -28,7 +28,10 @@ int _sqrt_recursion(int n)
 
 	root--;
 
+	if (root > 0)
+	{
 	ans = 0 + _sqrt_recursion(root);
+	}
 
 	return (ans);
 }
