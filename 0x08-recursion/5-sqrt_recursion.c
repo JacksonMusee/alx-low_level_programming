@@ -12,29 +12,22 @@
 int _sqrt_recursion(int n)
 {
 	const int num = n;
-	int root = 0;
+	int root = n;
 	int ans;
 
-	if (num < 0)
+	if ((num < 0) || (root < 0))
 	{
 	return (-1);
-	 break;
 	}
 
 	if ((root * root) == num)
 	{
 	return (root);
-	 break;
 	}
 
-	if ((root * root) > num)
-	{
-	return (-1);
-	break;
-	}
+	root--;
 
-	root++;
-	ans = _sqrt_recursion(root);
+	ans = 0 + _sqrt_recursion(root);
 
 	return(ans);
 }
