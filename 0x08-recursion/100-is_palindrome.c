@@ -23,19 +23,23 @@ char *go_to_last(char *s)
 
 int is_palindrome_helper(char *x, char *y)
 {
+	int rs;
+
 	if (*x == *y)
 	return (1);
 
 	if (*x != *y)
 	return (0);
-
-	if (*x == '\0')
-	return (1);
-
+	
 	x++;
 	y--;
 
-	return (is_palindrome_helper(x, y));
+	if (*x != '\0')
+	{
+	rs = is_palindrome_helper(x, y);
+	}
+
+	return (rs);
 }
 
 
