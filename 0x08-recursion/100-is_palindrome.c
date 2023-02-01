@@ -32,7 +32,7 @@ int is_palindrome_helper(char *x, char *y)
 
 	if (*x == *y)
 	{
-	rs = 1;
+	rs = 2;
 	}
 
 	x = x + 1;
@@ -53,7 +53,7 @@ int is_palindrome(char *s)
 	int r;
 
 	if (*s == '\0')
-	return (2);
+	return (1);
 
 	end = go_to_last(s);
 	r = is_palindrome_helper(s, end);
