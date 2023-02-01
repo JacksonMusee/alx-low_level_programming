@@ -12,7 +12,7 @@ char *go_to_last(char *s)
 {
 	int endval = *s;
 
-	if (end != '\0')
+	if (endval != '\0')
 	{
 	s++;
 	go_to_last(s);
