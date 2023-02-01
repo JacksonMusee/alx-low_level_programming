@@ -23,16 +23,18 @@ char *go_to_last(char *s)
 
 int is_palindrome_helper(char *x, char *y)
 {
-	int rs;
+	int rs = 0;
 
 	if (*x != *y)
 	{
-	return (0);
+	return (rs);
 	}
 
 	if (*x == *y)
+	{
 	rs = 1;
-	
+	}
+
 	x = x + 1;
 	y = y - 1;
 
