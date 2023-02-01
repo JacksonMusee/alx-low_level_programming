@@ -27,13 +27,13 @@ int is_palindrome_helper(char *x, char *y)
 	return (1);
 
 	if (*x != *y)
-	return (2);
+	return (0);
 
 	if (*x == '\0')
 	return (1);
 
 	x++;
-	y++;
+	y--;
 
 	return (is_palindrome_helper(x, y));
 }
