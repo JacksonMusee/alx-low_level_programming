@@ -10,9 +10,8 @@
 
 char *go_to_last(char *s)
 {
-	int endval = *s;
 
-	if (endval != '\0')
+	if (*s != '\0')
 	{
 	s++;
 	go_to_last(s);
@@ -48,7 +47,7 @@ int is_palindrome(char *s)
 	if (*s == '\0')
 	return (1);
 
-	end = go_to_last(s);
+	end = go_to_last(s) - 1;
 	r = is_palindrome_helper(s, end);
 
 	return(r);
