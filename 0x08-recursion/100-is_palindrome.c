@@ -53,7 +53,7 @@ int is_palindrome(char *s)
 	int r;
 
 	if (*s == '\0')
-	return (1);
+	return (2);
 
 	end = go_to_last(s);
 	r = is_palindrome_helper(s, end);
