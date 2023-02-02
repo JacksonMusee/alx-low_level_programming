@@ -11,36 +11,33 @@
 char *go_to_last(char *s)
 {
 
-	if (*s != '\0')
+	if (*(s + 1) == '\0')
 	{
-	s++;
-	go_to_last(s);
+	return (s);
 	}
 
-	return (s - 1);
+	s++;
+
+	return (got_to_last(s));
 }
 
 
 int is_palindrome_helper(char *x, char *y)
 {
-	int rs = 1;
-
 	if (*x != *y)
 	{
-	rs = 0;
+	return (0);
 	}
 
-	if (*x == *y)
+	if (*x == *y && *(x + 1) == '\0')
 	{
-		x = x + 1;
-		y = y - 1;
-
-		if (*x != '\0')
-		{
-		is_palindrome_helper(x, y);
-		}
+	return (1);
 	}
-	return (rs);
+
+	x++;
+	y--;
+
+	return (is_palindrome_helper(x, y));
 }
 
 
