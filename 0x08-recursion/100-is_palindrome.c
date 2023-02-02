@@ -18,7 +18,7 @@ char *go_to_last(char *s)
 
 	s++;
 
-	return (got_to_last(s));
+	return (go_to_last(s));
 }
 
 
