@@ -32,8 +32,8 @@ int is_palindrome_helper(char *x, char *y)
 
 	if (*x == *y)
 	{
-		x++;
-		y--;
+		x = x + 1;
+		y = y - 1;
 
 		if (*x != '\0')
 		{
