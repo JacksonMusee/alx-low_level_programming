@@ -1,12 +1,12 @@
 #include "main.h"
 
 /**
+ *wildcmp - Compare 2 strings
  *
+ *@s1: string 1
+ *@s2: String 2
  *
- *
- *
- *
- *
+ *Return: 1 if identical 0 otherwise
  */
 
 int wildcmp(char *s1, char *s2)
@@ -51,5 +51,5 @@ int wildcmp(char *s1, char *s2)
 	return (1);
 	}
 
-	return (wldcmp(s1, s2));
+	return (wildcmp(s1, s2));
 }
