@@ -7,6 +7,8 @@
  *@argc: Argument count
  *
  * @argv: Array of arguments
+ *
+ * Retur: 0 for success 1 otherwise
  */
 
 int main(int argc, char *argv[])
