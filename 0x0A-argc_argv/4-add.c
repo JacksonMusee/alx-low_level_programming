@@ -20,7 +20,7 @@ int main(int argc, char *argv[])
 
 	for (i = 0; i < argc; i++)
 	{
-		if (isdigit(*argv[0]) == 0)
+		if (*argv[0] > 57)
 		{
 		printf("Error\n");
 		return (1);
