@@ -18,22 +18,22 @@ int main(int argc, char *argv[])
 	int sum;
 	int num;
 
-	for (i = 0; i < argc; i++)
+	for (i = 1; i < argc; i++)
 	{
+
 		for (j = 0; ; j++)
 		{
-			if (argv[0][j] != '\n' && argv[0][j] > 57)
+			if (argv[i][j] != '\0' && (argv[i][j] < 48 || argv[i][j] > 57))
 			{
 			printf("Error\n");
 			return (1);
 			}
-			else if (argv[0][j] == '\n')
+			else if (argv[i][j] == '\0')
 			break;
 		}
-		printf("%s\n", *argv);
-		num = atoi(*argv);
+
+		num = atoi(argv[i]);
 		sum += num;
-		argv++;
 	}
 	printf("%d\n", sum);
 
