@@ -14,18 +14,23 @@
 
 int main(int argc, char *argv[])
 {
-	int i;
+	int i, j;
 	int sum;
 	int num;
 
 	for (i = 0; i < argc; i++)
 	{
-		if (*argv[0] > 57)
+		for (j = 0; ; j++)
 		{
-		printf("Error\n");
-		return (1);
+			if (argv[0][j] != '\n' && argv[0][j] > 57)
+			{
+			printf("Error\n");
+			return (1);
+			}
+			else if (argv[0][j] == '\n')
+			break;
 		}
-
+		printf("%s\n", *argv);
 		num = atoi(*argv);
 		sum += num;
 		argv++;
