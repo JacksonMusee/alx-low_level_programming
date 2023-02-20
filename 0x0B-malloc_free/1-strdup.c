@@ -13,7 +13,7 @@
 char *_strdup(char *str)
 {
 	char *strcpy;
-	int i;
+	int i = 0;
 	int len = 0;
 
 	if (str == NULL)
@@ -25,15 +25,16 @@ char *_strdup(char *str)
 	str++;
 	}
 
-	strcpy = malloc(sizeof(char) * len);
+	strcpy = malloc((sizeof(char) * len) + 1);
 
 	if (strcpy == NULL)
 	return (NULL);
 
 	while (*str != '\0')
 	{
-	strcpy[i] = *(str + 1);
+	strcpy[i] = *str;
 	i++;
+	str++;
 	}
 	strcpy[i] = '\0';
 
