@@ -3,10 +3,10 @@
 #include <stdio.h>
 
 /**
+ *free_grid - Free allocated memory in fle 3-alloc_grid.c
  *
- *
- *
- *
+ *@grid: pointer to array of ponters
+ *@height: number rows/sub arrays
  *
  */
 
