@@ -7,7 +7,7 @@ int calc_len(char *str_cp)
 	int len = 0;
 
 	if (str_cp == NULL)
-	return;
+	return (0);
 
 	while (*str_cp != '\0')
 	{
