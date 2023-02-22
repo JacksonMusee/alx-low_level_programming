@@ -74,7 +74,7 @@ char *argstostr(int ac, char **av)
 	
 	_putchar(av[0][10]);
 	_putchar('\n');
-	_putchar(av[0][11];
+	_putchar(av[0][11]);
 
 	return (str);
 }
