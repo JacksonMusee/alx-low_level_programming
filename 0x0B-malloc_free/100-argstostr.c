@@ -71,6 +71,6 @@ char *argstostr(int ac, char **av)
 		str[k + 1] = 't';
 
 	}
-	printf("%d", i)
+	printf("%d", i);
 	return (str);
 }
