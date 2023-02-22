@@ -66,8 +66,6 @@ char *argstostr(int ac, char **av)
 		k++;
 		j++;
 		}
-
-		if (av[i][j] == '\0')
 		str[k] = '\n';
 
 	}
