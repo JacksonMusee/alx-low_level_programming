@@ -2,6 +2,14 @@
 #include <stdlib.h>
 #include <stdio.h>
 
+/**
+ *calc_len - find number of characters in a string
+ *
+ *@str_cp: the string
+ *
+ * Return: returns the length
+ */
+
 int calc_len(char *str_cp)
 {
 	int len = 0;
@@ -17,6 +25,7 @@ int calc_len(char *str_cp)
 
 	return (len);
 }
+
 /**
  *str_concat - concatenate two strngs
  *
@@ -32,9 +41,6 @@ char *str_concat(char *s1, char *s2)
 	char *str;
 	int len1, len2;
 	int i = 0, j = 0;
-/*
-	if (s1 == NULL && s2 == NULL)
-	return (NULL);*/
 
 	len1 = calc_len(s1);
 	len2 = calc_len(s2);
