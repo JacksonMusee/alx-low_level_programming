@@ -70,11 +70,6 @@ char *argstostr(int ac, char **av)
 		{
 		str[k] = '\0';
 		str[k + 1] = '\n';
-		}
-		else
-		{
-		str[k] = '\n';
-		}
 
 	}
 	return (str);
