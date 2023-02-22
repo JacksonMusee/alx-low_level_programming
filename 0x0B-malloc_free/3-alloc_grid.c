@@ -11,15 +11,18 @@
  * Return: pointer to the matrix
  */
 
-int *alloc_grid(int width, int height)
+int **alloc_grid(int width, int height)
 {
 	int i, j;
-	int *grid;
+	int **grid;
 
 	if (width <= 0 || height <= 0)
 	return (NULL);
 
-	grid = malloc(sizeof(int) * (width * height));
+	grid = (int**)malloc(sizeof(int*) * height);
+
+	for (i = 0; i < width; i++)
+		grid[i] = (int*)malloc(sizeof(int));
 
 	if (grid == NULL)
 	return (NULL);
@@ -28,7 +31,7 @@ int *alloc_grid(int width, int height)
 	{
 		for (j = 0; j < width; j++)
 		{
-			grid[i * width + j] = 0;
+			grid[i][j] = 0;
 		}
 	}
 
