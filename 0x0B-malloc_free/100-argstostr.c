@@ -51,7 +51,7 @@ char *argstostr(int ac, char **av)
 
 	c_count = char_count(ac, av);
 
-	str = malloc(sizeof(char) * (c_count + ac));
+	str = malloc(sizeof(char) * (c_count + ac + 1));
 
 	if (str == NULL)
 		return (NULL);
@@ -66,8 +66,16 @@ char *argstostr(int ac, char **av)
 		k++;
 		j++;
 		}
+		if (i == ac - 1)
+		{
+		str[k] = '\0';
+		str[k + 1] = '\n';
+		}
+		else
+		{
 		str[k] = '\n';
-	}
+		}
 
+	}
 	return (str);
 }
