@@ -67,8 +67,9 @@ char *argstostr(int ac, char **av)
 		j++;
 		}
 
-		if (i == ac -1)
+		if (i == (ac - 1))
 		{
+		str[k] = '\0';
 		str[k + 1] = '\n';
 		}
 		else
