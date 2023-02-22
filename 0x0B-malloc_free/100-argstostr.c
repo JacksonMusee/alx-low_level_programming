@@ -72,7 +72,7 @@ char *argstostr(int ac, char **av)
 
 	}
 	
-	_putchar(av[0][9]);
+	_putchar(av[0][10]);
 
 	return (str);
 }
