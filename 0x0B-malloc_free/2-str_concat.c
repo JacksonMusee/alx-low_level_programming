@@ -2,6 +2,24 @@
 #include <stdlib.h>
 #include <stdio.h>
 
+int calc_len(char *str_cp)
+{
+	int len;
+
+	if (str_cp == NULL)
+	{
+	len = 0;
+	return (len);
+	}
+
+	while (*str_cp != '\0')
+	{
+	len += 1;
+	str_cp++;
+	}
+
+	return (len);
+}
 /**
  *str_concat - concatenate two strngs
  *
@@ -21,19 +39,8 @@ char *str_concat(char *s1, char *s2)
 	if (s1 == NULL && s2 == NULL)
 	return (NULL);
 
-	while (*s1 != '\0')
-	{
-	len1 += 1;
-	s1++;
-	}
-	s1 -= len1;
-
-	while (*s2 != '\0')
-	{
-	len2 += 1;
-	s2++;
-	}
-	s2 -= len2;
+	len1 = calc_len(s1);
+	len2 = calc_len(s2);
 
 	str = malloc(sizeof(char) * (len1 + len2 + 1));
 
