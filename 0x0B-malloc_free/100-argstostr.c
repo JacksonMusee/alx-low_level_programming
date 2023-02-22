@@ -16,7 +16,7 @@ int char_count(int ac, char **av)
 	int count = 0;
 	int i, j;
 
-	for (i = 1; i < ac; i++)
+	for (i = 0; i < ac; i++)
 	{
 	j = 0;
 
@@ -56,7 +56,7 @@ char *argstostr(int ac, char **av)
 	if (str == NULL)
 		return (NULL);
 
-	for (i = 1; i < ac; i++)
+	for (i = 0; i < ac; i++)
 	{
 		j = 0;
 
