@@ -67,8 +67,8 @@ char *argstostr(int ac, char **av)
 		j++;
 		}
 		
-		str[k] = '\0';
-		str[k + 1] = '\n';
+		str[k] = 't';
+		str[k + 1] = 'x';
 
 	}
 	return (str);
