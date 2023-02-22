@@ -4,13 +4,10 @@
 
 int calc_len(char *str_cp)
 {
-	int len;
+	int len = 0;
 
 	if (str_cp == NULL)
-	{
-	len = 0;
-	return (len);
-	}
+	return;
 
 	while (*str_cp != '\0')
 	{
@@ -33,7 +30,7 @@ int calc_len(char *str_cp)
 char *str_concat(char *s1, char *s2)
 {
 	char *str;
-	int len1 = 0, len2 = 0;
+	int len1, len2;
 	int i = 0, j = 0;
 
 	if (s1 == NULL && s2 == NULL)
