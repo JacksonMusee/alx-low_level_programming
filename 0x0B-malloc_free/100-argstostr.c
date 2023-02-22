@@ -69,7 +69,6 @@ char *argstostr(int ac, char **av)
 
 		if (i == ac -1)
 		{
-		str[k] = '\n';
 		str[k + 1] = '\n';
 		}
 		else
