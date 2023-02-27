@@ -35,6 +35,8 @@ int *do_count(char *str)
 	count[0] = c_count;
 	count[1] = w_count;
 
+	printf("c_count = %d, w_count = %d", c_count, w_count);
+
 	return (count);
 }
 
@@ -58,8 +60,6 @@ char **strtow(char *str)
 	count = do_count(str);
 	c_count = *count;
 	w_count = *(count + 1);
-
-	printf("c_count = %d, w_count = %d", c_count, w_count);
 /*
 	if (str == NULL || str == "")
 		return (NULL);*/
