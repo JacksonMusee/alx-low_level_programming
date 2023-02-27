@@ -56,8 +56,13 @@ char **strtow(char *str)
 	char **words;
 	int i;
 	int j = 0;
-	int c_count = 0;
-	int w_count = 0;
+	int count[2];
+	int c_count;
+	int w_count;
+
+	count = do_count(str);
+	c_count = count[0];
+	w_count = count[1];
 /*
 	if (str == NULL || str == "")
 		return (NULL);*/
