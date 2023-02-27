@@ -14,7 +14,7 @@ int *do_count(char *str)
 {
 	int c_count;
 	int w_count;
-	int count[2];
+	static int count[2];
 
 	while (*str == ' ' || *str == '\t')
 	{
@@ -59,7 +59,7 @@ char **strtow(char *str)
 	int c_count = 0;
 	int w_count = 0;
 
-	if (str == NULL || str == "")
+	if (*str == NULL || *str == "")
 		return (NULL);
 
 	words = malloc((sizeof(char) * (c_count + 1)) + (sizeof(char) * (w_count + 1)));
