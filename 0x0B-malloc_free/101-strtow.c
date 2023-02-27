@@ -12,8 +12,8 @@
 
 int *do_count(char *str)
 {
-	int c_count;
-	int w_count;
+	int c_count = 0;
+	int w_count = 0;
 	static int count[2];
 
 	while (*str != '\0')
