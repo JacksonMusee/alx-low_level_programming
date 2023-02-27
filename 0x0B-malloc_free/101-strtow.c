@@ -61,8 +61,8 @@ char **strtow(char *str)
 	int w_count;
 
 	count = do_count(str);
-	c_count = count[0];
-	w_count = count[1];
+	c_count = *count;
+	w_count = *(count + 1);
 /*
 	if (str == NULL || str == "")
 		return (NULL);*/
