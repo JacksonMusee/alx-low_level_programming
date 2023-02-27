@@ -48,7 +48,7 @@ int *do_count(char *str)
  * Return: pointer to the array
  */
 
-char **strtow(char *str)
+void **strtow(char *str)
 {
 	char **words;
 	int i;
@@ -62,7 +62,7 @@ char **strtow(char *str)
 	w_count = *(count + 1);
 /*
 	if (str == NULL || str == "")
-		return (NULL);*/
+		return (NULL);
 
 	words = malloc((sizeof(char) * (c_count + 1)) + (sizeof(char) * (w_count + 1)));
 
@@ -86,6 +86,7 @@ char **strtow(char *str)
 	}
 
 	return (words);
+	*/
 }
 
 
