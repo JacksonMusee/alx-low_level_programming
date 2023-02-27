@@ -56,7 +56,7 @@ char **strtow(char *str)
 	char **words;
 	int i;
 	int j = 0;
-	int count[2];
+	int *count;
 	int c_count;
 	int w_count;
 
