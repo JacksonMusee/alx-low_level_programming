@@ -16,11 +16,6 @@ int *do_count(char *str)
 	int w_count;
 	static int count[2];
 
-	while (*str == ' ' || *str == '\t')
-	{
-	str++;
-	}
-
 	while (*str != '\0')
 	{
 		if (*str == ' ' || *str == '\t')
@@ -28,7 +23,7 @@ int *do_count(char *str)
 
 		c_count++;
 
-		if ((*str != ' ' && *str != '\t') && (*(str - 1) == ' ' || *(str - 1) == '\t'))
+		if ((*str != ' ' || *str != '\t') && (*(str - 1) == ' ' || *(str - 1) == '\t'))
 		{
 			w_count++;
 			c_count++;
