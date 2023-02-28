@@ -16,29 +16,45 @@ int *do_count(char *str)
 	int w_count = 0;
 	static int count[2];
 
+	if (*str == ' ' || *str == '\t')
+		str++;
+
 	while (*str != '\0')
 	{
-		if (*str == ' ' || *str == '\t')
+		c_count++;
+		str++;
+
+		while (*str == ' ' || *str == '\t')
 			str++;
 
-		c_count++;
-
-		if ((*str != ' ' || *str != '\t') && (*(str - 1) == ' ' || *(str - 1) == '\t'))
+		if ((*str != ' ' && *str != '\t') && (*(str - 1) == ' ' || *(str - 1) == '\t'))
 		{
 			w_count++;
 			c_count++;
 		}
-
-		str++;
 	}
 
-	count[0] = c_count;
-	count[1] = w_count;
+	if (w_count > 0)
+		w_count += 1;
 
-	printf("c_count = %d, w_count = %d", c_count, w_count);
+	count[0] = w_count;
+	count[1] = c_count;
 
 	return (count);
 }
+
+/*
+int main()
+{
+	char *str = "I know but it does not matter";
+
+	int *x = do_count(str);
+
+	printf("w_count = %d, c_count = %d\n", *x, *(x + 1));
+
+	return (0);
+}
+*/
 
 /**
  *strtow - Convert a string to an array of string (Words)
@@ -48,7 +64,7 @@ int *do_count(char *str)
  * Return: pointer to the array
  */
 
-void **strtow(char *str)
+char **strtow(char *str)
 {
 	char **words;
 	int i;
@@ -58,10 +74,10 @@ void **strtow(char *str)
 	int w_count;
 
 	count = do_count(str);
-	c_count = *count;
-	w_count = *(count + 1);
-/*
-	if (str == NULL || str == "")
+	w_count = *count;
+	c_count = *(count + 1);
+
+	if (str == NULL || *str == "")
 		return (NULL);
 
 	words = malloc((sizeof(char) * (c_count + 1)) + (sizeof(char) * (w_count + 1)));
@@ -86,22 +102,5 @@ void **strtow(char *str)
 	}
 
 	return (words);
-	*/
+	
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
