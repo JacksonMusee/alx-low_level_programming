@@ -77,7 +77,7 @@ char **strtow(char *str)
 	w_count = *count;
 	c_count = *(count + 1);
 
-	if (str == NULL || *str == "")
+	if (str == NULL || *str == '\0')
 		return (NULL);
 
 	words = malloc((sizeof(char) * (c_count + 1)) + (sizeof(char) * (w_count + 1)));
