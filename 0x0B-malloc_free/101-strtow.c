@@ -80,7 +80,7 @@ char **strtow(char *str)
 	if (str == NULL || *str == '\0')
 		return (NULL);
 
-	words =(int *) malloc((sizeof(char) * (c_count + 1)) + (sizeof(char) * (w_count + 1)));
+	words =(int **) malloc((sizeof(char) * (c_count + 1)) + (sizeof(char) * (w_count + 1)));
 
 	if (words == NULL)
 		return (NULL);
