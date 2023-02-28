@@ -16,7 +16,7 @@ int *do_count(char *str)
 	int w_count = 0;
 	static int count[2];
 
-	if (*str == ' ' || *str == '\t')
+	while (*str == ' ' || *str == '\t')
 		str++;
 
 	while (*str != '\0')
@@ -27,7 +27,7 @@ int *do_count(char *str)
 		while (*str == ' ' || *str == '\t')
 			str++;
 
-		if ((*str != ' ' && *str != '\t') && (*(str - 1) == ' ' || *(str - 1) == '\t'))
+		if ((*str != ' ' && *str != '\t' && *str != '\0') && (*(str - 1) == ' ' || *(str - 1) == '\t'))
 		{
 			w_count++;
 			c_count++;
@@ -46,7 +46,7 @@ int *do_count(char *str)
 /*
 int main()
 {
-	char *str = "I know but it does not matter";
+	char *str = "  I know but it does not matter   ";
 
 	int *x = do_count(str);
 
@@ -83,7 +83,7 @@ char **strtow(char *str)
 	if (str == NULL || *str == '\0')
 		return (NULL);
 
-	words =(char **) malloc((sizeof(char) * (c_count + 1)) + (sizeof(char) * (w_count + 1)));
+	words = malloc((sizeof(char) * (c_count + 1)) + (sizeof(char) * (w_count + 1)));
 
 	if (words == NULL)
 		return (NULL);
