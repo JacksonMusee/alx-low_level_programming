@@ -76,6 +76,9 @@ char **strtow(char *str)
 	count = do_count(str);
 	w_count = *count;
 	c_count = *(count + 1);
+	
+	printf("w_count = %d, c_count = %d\n", w_count, c_count);
+
 
 	if (str == NULL || *str == '\0')
 		return (NULL);
