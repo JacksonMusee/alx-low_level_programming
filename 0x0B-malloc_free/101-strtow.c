@@ -68,7 +68,7 @@ char *help_malloc(char *str)
 {
 	int c_count = 0;
 	int *c_count_ptr;
-	char my_arr[2];
+	int my_arr[2];
 
 	while (*str == ' ' || *str == '\t')
                 str++;
