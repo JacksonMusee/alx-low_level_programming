@@ -68,6 +68,7 @@ char *help_malloc(char *str)
 {
 	int c_count = 0;
 	int *c_count_ptr;
+	char my_arr[2];
 
 	while (*str == ' ' || *str == '\t')
                 str++;
@@ -110,6 +111,10 @@ char **strtow(char *str)
 	int *count;
 	int c_count;
 	int w_count;
+	char crt_str;
+	char my_arr[2];
+	int wc_count;
+
 
 	count = do_count(str);
 	w_count = *count;
@@ -132,7 +137,7 @@ char **strtow(char *str)
 	{
 		my_arr = help_malloc(crt_str);
 		crt_str = my_arr[1];
-		wc_count = my_arr[0];
+		wc_count = *(my_arr[0]);
 		words[i] = (char *)malloc(sizeof(char) * wc_count);
 
 	}
