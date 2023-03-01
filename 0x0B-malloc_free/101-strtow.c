@@ -87,7 +87,7 @@ char *help_malloc(char *str)
                 }
         }
 
-	&c_count_ptr = c_count;
+	c_count_ptr = &c_count;
 
 	my_arr[0] = c_count_ptr;
 	my_arr[2] = str;
