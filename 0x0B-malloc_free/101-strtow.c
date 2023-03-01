@@ -64,11 +64,11 @@ int main()
  * Return: Pointer to the next word
  */
 
-char *help_malloc(char *str)
+int *help_malloc(char *str)
 {
 	int c_count = 0;
 	int *c_count_ptr;
-	int my_arr[2];
+	int *my_arr[2];
 
 	while (*str == ' ' || *str == '\t')
                 str++;
@@ -90,7 +90,7 @@ char *help_malloc(char *str)
 	c_count_ptr = &c_count;
 
 	my_arr[0] = c_count_ptr;
-	my_arr[2] = str;
+	my_arr[2] = &str;
 
 	return (my_arr);
 }
