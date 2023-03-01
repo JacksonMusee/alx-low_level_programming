@@ -57,6 +57,44 @@ int main()
 */
 
 /**
+ *help_malloc - Calculate characters in a word
+ *
+ *@str - string
+ *
+ * Return: Pointer to the next word
+ */
+
+char *help_malloc(char *str)
+{
+	int c_count = 0;
+	int *c_count_ptr;
+
+	while (*str == ' ' || *str == '\t')
+                str++;
+	
+	if (*str != '\0')
+        {
+                c_count++;
+                str++;
+
+                while (*str == ' ' || *str == '\t')
+                        str++;
+
+                if ((*str != ' ' && *str != '\t' && *str != '\0') && (*(str - 1) == ' ' || *(str - 1) == '\t'))
+                {
+                        c_count++;
+                }
+        }
+
+	*c_count_ptr = c_count;
+
+	my_arr[0] = c_count_ptr;
+	my_arr[2] = str;
+
+	return (my_arr);
+}
+
+/**
  *strtow - Convert a string to an array of string (Words)
  *
  *@str: The string
@@ -87,6 +125,17 @@ char **strtow(char *str)
 
 	if (words == NULL)
 		return (NULL);
+
+	crt_str = str;
+
+	for (i = 0; i < w_count; i++)
+	{
+		my_arr = help_malloc(crt_str);
+		crt_str = my_arr[1];
+		wc_count = my_arr[0];
+		words[i] = (char *)malloc(sizeof(char) * wc_count);
+
+	}
 
 	for (i = 0; i < w_count; i++)
 	{
