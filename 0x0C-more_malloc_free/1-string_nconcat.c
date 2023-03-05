@@ -3,10 +3,10 @@
 #include <stdlib.h>
 
 /**
- * str_size - Find lengthe of a string
+ *str_size - Find lengthe of a string
  *
- * @strg: Thr string
- * 
+ *@strg: Thr string
+ *
  *Return: The length
  *
  */
@@ -14,6 +14,9 @@
 int str_size(char *strg)
 {
 	int len = 0;
+
+	if (strg == NULL)
+		return (0);
 
 	while (*strg != '\0')
 	{
@@ -43,7 +46,7 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 
 	s1_size = str_size(s1);
 
-	new_str = malloc(sizeof *new_str * (s1_size + n + 1));
+	new_str = malloc(sizeof(*new_str) * (s1_size + n + 1));
 
 	if (new_str == NULL)
 		return (NULL);
