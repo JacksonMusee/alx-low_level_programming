@@ -50,9 +50,6 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	s1_size = str_size(s1);
 	}
 
-	if (s2 == NULL)
-		n = 0;
-
 	new_str = malloc(sizeof(*new_str) * (s1_size + n + 1));
 
 	if (new_str == NULL)
@@ -65,7 +62,7 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 		s1++;
 	}
 
-	while (i < n && *s2 == '\0')
+	while (i < n && *s2 != '\0')
 	{
 		new_str[j] = *s2;
 		s2++;
