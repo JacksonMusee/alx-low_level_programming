@@ -15,9 +15,6 @@ int str_size(char *strg)
 {
 	int len = 0;
 
-	if (strg == NULL)
-		return (0);
-
 	while (*strg != '\0')
 	{
 	len++;
@@ -44,7 +41,17 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	char *new_str;
 	int s1_size;
 
+	if (s1 == NULL)
+	{
+	s1_size = 0;
+	}
+	else
+	{
 	s1_size = str_size(s1);
+	}
+
+	if (s2 == NULL)
+		n = 0;
 
 	new_str = malloc(sizeof(*new_str) * (s1_size + n + 1));
 
