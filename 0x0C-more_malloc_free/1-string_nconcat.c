@@ -42,13 +42,12 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	int s1_size;
 
 	if (s1 == NULL)
-	{
-	s1_size = 0;
-	}
-	else
-	{
+		s1 = "";
+
+	if (s2 == NULL)
+		s2 = "";
+
 	s1_size = str_size(s1);
-	}
 
 	new_str = malloc(sizeof(*new_str) * (s1_size + n + 1));
 
