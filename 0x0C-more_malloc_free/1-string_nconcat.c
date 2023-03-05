@@ -65,7 +65,7 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 		s1++;
 	}
 
-	while (i < n)
+	while (i < n && *s2 == '\0')
 	{
 		new_str[j] = *s2;
 		s2++;
