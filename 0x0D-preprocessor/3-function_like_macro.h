@@ -1,5 +1,5 @@
-#ifdef ABS
-#undef ABS
+#ifdef ABS(X)
+#undef ABS(X)
 #endif
 
 #if X < 1
