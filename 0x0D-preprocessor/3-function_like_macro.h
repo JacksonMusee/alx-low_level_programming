@@ -1,4 +1,4 @@
-#ifndef ABS
+#ifndef ABS(X)
 
 #if X < 0
 #define ABS(X) ((X) * -1)
