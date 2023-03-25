@@ -1,8 +1,5 @@
-#ifdef ABS(X)
 #undef ABS(X)
-#endif
-
-#if X < 1
+#if x < 1
 #define ABS(X) (X * -1)
 #else
 #define ABS(X) X
