@@ -27,7 +27,7 @@ dog_t *new_dog(char *name, float age, char *owner)
 	free(kadog);
 	return (NULL);
 	}
-	
+
 	kadog->owner = (char *) malloc((sizeof(char) * strlen(owner)) + sizeof(char));
 	if (kadog->owner == NULL)
 	{
