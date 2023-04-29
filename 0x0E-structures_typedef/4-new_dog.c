@@ -14,10 +14,12 @@
 
 dog_t *new_dog(char *name, float age, char *owner)
 {
-	kadog = malloc(sizeof(dog_t));
-	kadog.name = name;
-	kadog.age = age;
-	kadog.owner = owner;
+	dog_t *kadog;
 
-	return kadog;
+	kadog = malloc(sizeof(dog_t));
+	kadog->name = name;
+	kadog->age = age;
+	kadog->owner = owner;
+
+	return (kadog);
 }
