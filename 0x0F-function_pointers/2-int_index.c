@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "function_pointers"
+#include "function_pointers.h"
 
 /**
  *int_index - Compare two array using foreign function
@@ -13,6 +13,7 @@
 int int_index(int *array, int size, int (*cmp)(int))
 {
 	int i;
+	int idx;
 
 	if (size <= 0)
 		return (-1);
