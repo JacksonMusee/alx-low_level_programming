@@ -8,6 +8,7 @@
  *@size: Size of array
  *@cmp: pointer to the foreign function
  *
+ * Return: Returns the matching index or -1 on error
  */
 
 int int_index(int *array, int size, int (*cmp)(int))
