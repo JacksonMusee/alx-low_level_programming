@@ -1,26 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int main(int argc, char *argv[]);
-
-/**
- *print_bytes - the first bytes of main
- *
- *@bytes: The number to print
- *
- */
-void print_bytes(int bytes)
-{
-	int i;
-	unsigned char *main_n;
-	main_n = (unsigned char *)&main;
-
-	for (i = 0; i < bytes; i++)
-	{
-	printf("%2x ", *(main_n + i));
-	}
-	printf("%2x\n", *(main_n + bytes));
-}
+void print_bytes(int bytes);
 
 /**
  *main - Entry to complication
@@ -50,4 +31,23 @@ int main(int argc, char *argv[])
 	}
 
 	print_bytes(bytes);
+}
+
+/**
+ *print_bytes - the first bytes of main
+ *
+ *@bytes: The number to print
+ *
+ */
+void print_bytes(int bytes)
+{
+        int i;
+        unsigned char *main_n;
+        main_n = (unsigned char *)&main;
+
+        for (i = 0; i < bytes; i++)
+        {
+        printf("%2x ", *(main_n + i));
+        }
+        printf("%2x\n", *(main_n + bytes));
 }
