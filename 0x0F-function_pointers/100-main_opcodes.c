@@ -43,18 +43,19 @@ int main(int argc, char **argv)
  */
 void print_bytes(int bytes)
 {
-        int i;
+        int i = 0;
         unsigned char *main_n;
-        main_n = (unsigned char *)main;
+        main_n = (char *)main;
 
-        for (i = 0; i < bytes; i++)
+        while (i < bytes)
         {
 
-	if (i != 0)
-	{
-	printf(" ");
-	}
-        printf("%2x", main_n[i]);
+		if (i != 0)
+		{
+		printf(" ");
+		}
+        	printf("%2x", main_n[i]);
+		i++;
         }
         printf("\n");
 }
