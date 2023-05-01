@@ -45,7 +45,7 @@ void print_bytes(int bytes)
 {
         int i;
         unsigned char *main_n;
-        main_n = (unsigned char *)&main;
+        main_n = (unsigned char *)main;
 
         for (i = 0; i < bytes; i++)
         {
