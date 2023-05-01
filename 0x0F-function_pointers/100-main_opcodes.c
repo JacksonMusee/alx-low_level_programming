@@ -54,7 +54,7 @@ if (i != 0)
 {
 printf(" ");
 }
-printf("%2hhx", main_n[i]);
+printf("%02x", main_n[i]);
 i++;
 }
 printf("\n");
