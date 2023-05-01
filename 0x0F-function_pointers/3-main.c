@@ -23,7 +23,7 @@ int main(int argc, char *argv[])
 	printf("Error\n");
 	exit(98);
 	}
-	
+
 	denom = atoi(argv[3]);
 	if (denom == 0 && (strcmp(argv[2], "/") == 0 || strcmp(argv[2], "%") == 0))
 	{
