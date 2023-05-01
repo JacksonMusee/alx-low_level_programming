@@ -47,7 +47,12 @@ void print_bytes(int bytes)
 
         for (i = 0; i < bytes; i++)
         {
-        printf("%2x ", *(main_n + i));
+
+	if (i != 0)
+	{
+	printf(" ");
+	}
+        printf("%2x", main_n[i]);
         }
-        printf("%2x\n", *(main_n + bytes));
+        printf("\n");
 }
