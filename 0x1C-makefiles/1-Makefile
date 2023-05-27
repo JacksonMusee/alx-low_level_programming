@@ -4,4 +4,4 @@ CC = gcc
 all: school
 
 school: $(SRC)
-	$(CC) $(SRC) -O school
+	$(CC) $(SRC) -o school
