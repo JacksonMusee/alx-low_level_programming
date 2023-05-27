@@ -21,4 +21,5 @@ fclean: clean oclean
 
 re:
 	$(RM) -f $(OBJ)
-	$(CC) -c $(SRC) -o $(OBJ)
+	$(CC) -c $(SRC)
+	$(CC) $(OBJ) -o $(NAME)
