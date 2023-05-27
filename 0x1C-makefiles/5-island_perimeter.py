@@ -15,14 +15,15 @@ def island_perimeter(grid):
     peri = 0
 
     while i < grid_len:
+        crt_len = len(grid[i])
 
-        while j < (len(grid[i]) - 1):
+        while j < crt_len:  
 
             if grid[i][j] == 1:
                 if j == 0 or grid[i][j - 1] == 0:
                     peri = peri + 1
-                
-                if j == len(grid[i]) - 1 or grid[i][j + 1] == 0:
+
+                if j == crt_len - 1 or grid[i][j + 1] == 0:
                     peri = peri + 1
 
                 if i == 0 or grid[i - 1][j] == 0:
@@ -31,7 +32,7 @@ def island_perimeter(grid):
                 if i == grid_len - 1 or grid[i + 1][j] == 0:
                     peri = peri + 1
 
-            j = j+1
+            j = j + 1
 
         j = 0
         i = i + 1
