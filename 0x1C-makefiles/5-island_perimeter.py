@@ -3,6 +3,7 @@
 I'm an interesting module. With only one function
 """
 
+
 def island_perimeter(grid):
     """
     This function calculates and returns the primeter of an\
@@ -17,8 +18,7 @@ def island_perimeter(grid):
     while i < grid_len:
         crt_len = len(grid[i])
 
-        while j < crt_len:  
-
+        while j < crt_len:
             if grid[i][j] == 1:
                 if j == 0 or grid[i][j - 1] == 0:
                     peri = peri + 1
