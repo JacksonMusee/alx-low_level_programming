@@ -17,12 +17,16 @@ int *array_range(int min, int max)
 	int i = 0;
 
 	if (min > max)
+	{
 		return NULL;
+	}
 
 	arranged = malloc(sizeof(arranged)*((max - min)+1));
 
 	if (arranged == NULL)
+	{
 		return NULL;
+	}
 
 	while (i < (max - min + 1))
 	{
