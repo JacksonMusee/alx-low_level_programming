@@ -18,14 +18,14 @@ int *array_range(int min, int max)
 
 	if (min > max)
 	{
-		return NULL;
+		return (NULL);
 	}
 
-	arranged = malloc(sizeof(arranged)*((max - min)+1));
+	arranged = malloc(sizeof(arranged) * ((max - min) + 1));
 
 	if (arranged == NULL)
 	{
-		return NULL;
+		return (NULL);
 	}
 
 	while (i < (max - min + 1))
@@ -33,7 +33,7 @@ int *array_range(int min, int max)
 		arranged[i] = min + i;
 		i++;
 	}
-	
-	return arranged;
+
+	return (arranged);
 }
 
