@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <stdarg.h>
-#include <stdlib.h>
 
 /**
  *sum_them_all - funscton to sum all its aurguments
