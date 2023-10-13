@@ -6,7 +6,7 @@
  *
  *@n: number arguments
  *
- * Return - retunr the sum
+ *Return - retunr the sum
  *
  */
 
