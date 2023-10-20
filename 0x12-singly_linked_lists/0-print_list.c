@@ -30,7 +30,7 @@ size_t print_list(const list_t *h)
 			printf("%s\n", actv_node->str);
 		}
 		actv_node = actv_node->next;
-		node_count++;	
+		node_count++;
 	}
 
 	return  (node_count);
