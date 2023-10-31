@@ -4,7 +4,7 @@
  *read_textfile - Read from a file and print out
  *
  *@filename: the file to read from
- *@letter: number characters to print
+ *@letters: number characters to print
  *
  * Return: Number of bytes written or 0 on failure
  */
