@@ -50,14 +50,14 @@ int copy_from_to(char *file_from, char *file_to)
 	close_fd_from = close(fd_from);
 	if (close_fd_from == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d", fd_from);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd_from);
 		exit(100);
 	}
 
 	close_fd_to = close(fd_to);
 	if (close_fd_to == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d", fd_to);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd_to);
 		exit(100);
 	}
 
@@ -77,7 +77,7 @@ int main(int argc, char *argv[])
 {
 	if (argc != 3)
 	{
-		dprintf(STDERR_FILENO, "Usage: cp file_from file_to");
+		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
 		exit(97);
 	}
 
