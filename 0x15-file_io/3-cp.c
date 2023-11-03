@@ -49,7 +49,6 @@ int copy_from_to(char *file_from, char *file_to)
  *@file_to: File to copy from
  *@fd_from: file descriptor from
  *@fd_to: file descriptor to
- *@bytes_read: Obvious
  *@buf: Pointer to the buffer
  *
  */
