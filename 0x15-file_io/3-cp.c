@@ -35,7 +35,7 @@ int copy_from_to(char *file_from, char *file_to)
 	if (fd_to < 0)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't write from file %s\n", file_to);
-		exit(98);
+		exit(99);
 	}
 
 	bytes_read = 1024;
