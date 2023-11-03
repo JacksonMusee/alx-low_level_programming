@@ -19,7 +19,7 @@ int copy_from_to(char *file_from, char *file_to)
 
 	fd_from = open(file_from, O_RDONLY);
 
-	if (fd_from < 0)
+	if (fd_from == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", file_from);
 		exit(98);
@@ -32,7 +32,7 @@ int copy_from_to(char *file_from, char *file_to)
 
 	fd_to = open(file_to, O_CREAT | O_WRONLY | O_TRUNC, 0664);
 
-	if (fd_to < 0)
+	if (fd_to == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file_to);
 		exit(99);
