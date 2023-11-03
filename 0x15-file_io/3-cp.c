@@ -1,10 +1,12 @@
 #include "main.h"
 
 /**
+ *copy_from_to - Copy from a a fle to another
  *
+ *@file_from: file to copy from
+ *@file_to: File to copy to
  *
- *
- *
+ *Return: 0 on success
  *
  */
 
@@ -13,10 +15,6 @@ int copy_from_to(char *file_from, char *file_to)
 	int fd_from;
 	int fd_to;
 	char *buf;
-	int bytes_read;
-	int bytes_written;
-	int close_fd_from;
-	int close_fd_to;
 
 	fd_from = open(file_from, O_RDONLY);
 
@@ -39,6 +37,28 @@ int copy_from_to(char *file_from, char *file_to)
 		exit(99);
 	}
 
+	helper(file_from, file_to, fd_from, fd_to, buf);
+
+	return (0);
+}
+
+/**
+ *helper - Helping function for copy_from_to
+ *
+ *@file_from: File to copy from
+ *@file_to: File to copy from
+ *@fd_from: file descriptor from
+ *@fd_to: file descriptor to
+ *@bytes_read: Obvious
+ *@buf: Pointer to the buffer
+ *
+ */
+
+void helper(char *file_from, char *file_to, int fd_from, int fd_to, char *buf)
+{
+
+	int bytes_written, close_fd_from, close_fd_to, bytes_read;
+
 	bytes_read = 1024;
 
 	while (bytes_read == 1024)
@@ -57,9 +77,7 @@ int copy_from_to(char *file_from, char *file_to)
 		{
 			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file_to);
 			exit(99);
-		
 		}
-
 		free(buf);
 	}
 
@@ -77,16 +95,14 @@ int copy_from_to(char *file_from, char *file_to)
 		exit(100);
 	}
 
-	return (0);
 }
-
 /**
+ *main - Entry point
  *
+ *@argc: Argument point
+ *@argv: Array of parameter
  *
- *
- *
- *
- *
+ *Return: 0 on success
  */
 
 int main(int argc, char *argv[])
