@@ -13,7 +13,8 @@ int copy_from_to(char *file_from, char *file_to)
 	int fd_from;
 	int fd_to;
 	char *buf;
-	size_t bytes_read;
+	int bytes_read;
+	int bytes_written;
 	int close_fd_from;
 	int close_fd_to;
 
@@ -43,7 +44,22 @@ int copy_from_to(char *file_from, char *file_to)
 	while (bytes_read == 1024)
 	{
 		bytes_read = read(fd_from, buf, 1024);
-		write(fd_to, buf, bytes_read);
+
+		if (bytes_read < 0)
+		{
+			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", file_from);
+			exit(98);
+		}
+
+		bytes_written = write(fd_to, buf, bytes_read);
+
+		if (bytes_written < 0)
+		{
+			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file_to);
+			exit(99);
+		
+		}
+
 		free(buf);
 	}
 
