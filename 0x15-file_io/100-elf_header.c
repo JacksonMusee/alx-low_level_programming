@@ -14,6 +14,7 @@ void print_elf(Elf64_Ehdr *my_elf_header)
 {
 	int i;
 	int elf_type = my_elf_header->e_type;
+	int ei_osabi = my_elf_header->e_ident[EI_OSABI];
 
 
 	printf("ELF Header:\n");
@@ -26,10 +27,10 @@ void print_elf(Elf64_Ehdr *my_elf_header)
 			printf(" ");
 	}
 
-	printf("\nClass:	ELF%d\n", (my_elf_header->e_ident[EI_CLASS] == ELFCLASS64) ? 64 : 32);
+	printf("\nClass:\t\t\t\t\tELF%d\n", (my_elf_header->e_ident[EI_CLASS] == ELFCLASS64) ? 64 : 32);
 	printf("Data:	%s\n",(my_elf_header->e_ident[EI_DATA] == ELFDATA2LSB) ? "2's complement, little endian" : "2's complement big endian");
 	printf("Version:	%d (current)\n", my_elf_header->e_ident[EI_VERSION]);
-	printf("OS/ABI:	%s\n", (my_elf_header->e_ident[EI_OSABI] == ELFOSABI_NONE) ? "UNIX - System V" : "EI_OSABI I=is not zero");
+	check_os(ei_osabi);
 	printf("ABI Version:	%d\n", my_elf_header->e_ident[EI_ABIVERSION]);
 	
 	switch (elf_type)
@@ -60,7 +61,55 @@ void print_elf(Elf64_Ehdr *my_elf_header)
 
 	printf("Entry point address:	0x%x\n", my_elf_header->e_type);
 }
+/**
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ */
+void check_os(int ei_osabi)
+{
+	char *os_str;
 
+	switch (ei_osabi)
+	{
+		case ELFOSABI_NONE:
+			os_str = "System V";
+			break;
+
+		case ELFOSABI_HPUX:
+			os_str = "HP-UX";
+			break;
+
+		case ELFOSABI_NETBSD:
+			os_str = "NetBSD";
+			break;
+
+		case ELFOSABI_LINUX:
+			os_str = "LINUX";
+			break;
+
+		case ELFOSABI_SOLARIS:
+			os_str = "Solaris";
+			break;
+
+		case ELFOSABI_AIX:
+			os_str = "AIX";
+			break;
+
+		case ELFOSABI_IRIX:
+			os_str = "IRIX";
+			break;
+
+		default:
+			os_str = "";
+
+	}
+	printf("OS/ABI:		UNIX - %s\n", os_str);
+}
 /**
  *
  *
