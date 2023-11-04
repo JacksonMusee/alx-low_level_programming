@@ -15,6 +15,7 @@ int create_file(const char *filename, char *text_content);
 int append_text_to_file(const char *filename, char *text_content);
 int copy_from_to(char *file_from, char *file_to);
 void helper(char *file_from, char *file_to, int fd_from, int fd_to, char *buf);
+void print_elf(Elf64_Ehdr *my_elf_header);
 
 
 #endif
