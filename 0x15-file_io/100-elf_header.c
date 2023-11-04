@@ -59,7 +59,7 @@ void print_elf(Elf64_Ehdr *my_elf_header)
 			printf("Type:	Type unkown\n");
 	}
 
-	printf("Entry point address:	%p\n", (void *)my_elf_header->e_entry);
+	printf("Entry point address:	0x%lx\n", my_elf_header->e_entry);
 }
 /**
  *
