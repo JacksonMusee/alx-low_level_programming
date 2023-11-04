@@ -27,7 +27,7 @@ void print_elf(Elf64_Ehdr *my_elf_header)
 			printf(" ");
 	}
 
-	printf("\nClass:		ELF%d\n", (my_elf_header->e_ident[EI_CLASS] == ELFCLASS64) ? 64 : 32);
+	printf("\nClass:ELF%d\n", (my_elf_header->e_ident[EI_CLASS] == ELFCLASS64) ? 64 : 32);
 	printf("Data:	%s\n",(my_elf_header->e_ident[EI_DATA] == ELFDATA2LSB) ? "2's complement, little endian" : "2's complement big endian");
 	printf("Version:	%d (current)\n", my_elf_header->e_ident[EI_VERSION]);
 	check_os(ei_osabi);
@@ -59,7 +59,7 @@ void print_elf(Elf64_Ehdr *my_elf_header)
 			printf("Type:	Type unkown\n");
 	}
 
-	printf("Entry point address:	0x%x\n", my_elf_header->e_type);
+	printf("Entry point address:	0x%lx\n", my_elf_header->e_entry);
 }
 /**
  *
