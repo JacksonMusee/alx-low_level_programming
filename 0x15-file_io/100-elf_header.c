@@ -30,7 +30,7 @@ void print_elf(Elf64_Ehdr *my_elf_header)
 
 	printf("\n  Class:                             ELF%d\n", (my_elf_header->e_ident[EI_CLASS] == ELFCLASS64) ? 64 : 32);
 	printf("  Data:                              %s\n",(my_elf_header->e_ident[EI_DATA] == ELFDATA2LSB) ? "2's complement, little endian" : "2's complement big endian");
-	printf("  Version:                           %d %s\n", my_elf_header->e_ident[EI_VERSION], my_elf_header->e_ident[EI_VERSION] == EV_CURRENT ? "(current)" : "");
+	printf("  Version:                           %d%s\n", my_elf_header->e_ident[EI_VERSION], my_elf_header->e_ident[EI_VERSION] == EV_CURRENT ? " (current)" : "");
 	check_os(ei_osabi);
 	printf("  ABI Version:                       %d\n", my_elf_header->e_ident[EI_ABIVERSION]);
 	
