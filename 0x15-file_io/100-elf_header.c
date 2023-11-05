@@ -61,6 +61,9 @@ void print_elf(Elf64_Ehdr *my_elf_header)
 	}
 	printf("  Type:                              %s\n", type_str);
 
+	if(my_elf_header->e_ident[EI_CLASS] == ELFCLASS32 && my_elf_header->e_ident[EI_DATA] == ELFDATA2MSB)
+		printf("  Entry point address:               %#x\n", swapEndian((uint32_t)my_elf_header->e_entry));
+
 	printf("  Entry point address:               %#lx\n", (my_elf_header->e_ident[EI_CLASS] == ELFCLASS32) ? (uint32_t)my_elf_header->e_entry : my_elf_header->e_entry);
 }
 /**
@@ -111,6 +114,23 @@ void check_os(int ei_osabi)
 
 	}
 	printf("  OS/ABI:                            %s\n", os_str);
+}
+/**
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ */
+uint32_t swapEndian(uint32_t value) {
+    return ((value >> 24) & 0x000000FF) |
+           ((value >> 8) & 0x0000FF00) |
+           ((value << 8) & 0x00FF0000) |
+           ((value << 24) & 0xFF000000);
 }
 /**
  *
