@@ -62,10 +62,15 @@ void print_elf(Elf64_Ehdr *my_elf_header)
 	printf("  Type:                              %s\n", type_str);
 
 	if(my_elf_header->e_ident[EI_CLASS] == ELFCLASS32 && my_elf_header->e_ident[EI_DATA] == ELFDATA2MSB)
+	{
 		printf("  Entry point address:               %#x\n", swapEndian((uint32_t)my_elf_header->e_entry));
-
+	}
+	else
+	{
 	printf("  Entry point address:               %#lx\n", (my_elf_header->e_ident[EI_CLASS] == ELFCLASS32) ? (uint32_t)my_elf_header->e_entry : my_elf_header->e_entry);
+	}
 }
+
 /**
  *
  *
