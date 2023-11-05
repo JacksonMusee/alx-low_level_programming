@@ -110,6 +110,8 @@ void check_os(int ei_osabi)
 			os_str = "";
 
 	}
+	if (strcmp(os_str, "") == 0)
+		printf("  OS/ABI:                            %x\n", ei_osabi);
 	printf("  OS/ABI:                            %s\n", os_str);
 }
 /**
