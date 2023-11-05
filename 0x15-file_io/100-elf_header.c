@@ -41,11 +41,10 @@ void print_elf(Elf64_Ehdr *my_elf_header)
 			break;
 
 		case ET_REL:
-			type_str = "";
 			type_str = "REL (Relocatable file type)";
 			break;
 
-		case ET_EXEC:
+		case 2:
 			type_str = "EXEC (Executable file)";
 			break;
 
