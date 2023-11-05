@@ -19,6 +19,10 @@ void print_elf(Elf64_Ehdr *my_elf_header);
 void check_os(int ei_osabi);
 uint32_t swapEndian(uint32_t value);
 uint64_t swapEndian64(uint64_t value);
+void print_type(int elf_type);
+void print_class(int elf_class);
+void print_data(int data);
+void print_version(int elf_version);
 
 
 #endif

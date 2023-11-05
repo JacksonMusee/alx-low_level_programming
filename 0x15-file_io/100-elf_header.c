@@ -5,18 +5,18 @@
  *
  *
  *
- *
- *
- *
- *
  */
 void print_elf(Elf64_Ehdr *my_elf_header)
 {
 	int i;
 	int elf_type = my_elf_header->e_type;
 	int ei_osabi = my_elf_header->e_ident[EI_OSABI];
-	char *type_str;
-
+	int elf_class = my_elf_header->e_ident[EI_CLASS];
+	int data = my_elf_header->e_ident[EI_DATA];
+	int elf_version = my_elf_header->e_ident[EI_VERSION];
+	int abi_version = my_elf_header->e_ident[EI_ABIVERSION];
+	uint64_t add = my_elf_header->e_entry;
+	uint32_t add32;
 
 	printf("ELF Header:\n");
 	printf("  Magic:   ");
@@ -28,12 +28,95 @@ void print_elf(Elf64_Ehdr *my_elf_header)
 			printf(" ");
 	}
 
-	printf("\n  Class:                             ELF%d\n", (my_elf_header->e_ident[EI_CLASS] == ELFCLASS64) ? 64 : 32);
-	printf("  Data:                              %s\n",(my_elf_header->e_ident[EI_DATA] == ELFDATA2LSB) ? "2's complement, little endian" : "2's complement, big endian");
-	printf("  Version:                           %d%s\n", my_elf_header->e_ident[EI_VERSION], my_elf_header->e_ident[EI_VERSION] == EV_CURRENT ? " (current)" : "");
+	print_class(elf_class);
+	print_data(data);
+	print_version(elf_version);
 	check_os(ei_osabi);
-	printf("  ABI Version:                       %d\n", my_elf_header->e_ident[EI_ABIVERSION]);
-	
+	printf("  ABI Version:                       %d\n", abi_version);
+	print_type(elf_type);
+
+	if (elf_class == ELFCLASS32 && data == ELFDATA2MSB)
+	{
+		add32 = swapEndian((uint32_t)my_elf_header->e_entry);
+
+		printf("  Entry point address:               %#x\n", add32);
+	}
+        else
+	{
+		if (elf_class == ELFCLASS32)
+		{
+		printf("  Entry point address:               %#x\n", (uint32_t)add);
+		}
+		else
+		{
+		printf("  Entry point address:               %#lx\n", add);
+		}
+	}
+}
+/*
+ *
+ *
+ *
+ */
+void print_version(int elf_version)
+{
+	if (elf_version == EV_CURRENT)
+	{
+		printf("  Version:                           %d (current)\n", elf_version);
+	}
+	else
+	{
+		printf("  Version:                           %d\n", elf_version);
+	}
+}
+/**
+ *
+ *
+ *
+ */
+void print_data(int data)
+{
+	char *d_str;
+
+	if (data == ELFDATA2LSB)
+		d_str = "2's complement, little endian";
+
+	if (data == ELFDATA2MSB)
+		d_str = "2's complement, big endian";
+
+	printf("  Data:                              %s\n", d_str);
+}
+/**
+ *
+ *
+ *
+ *
+ */
+void print_class(int elf_class)
+{
+	if (elf_class == ELFCLASS64)
+	{
+		printf("\n  Class:                             ELF%d\n", 64);
+	}
+	else if (elf_class == ELFCLASS32)
+	{
+		printf("\n  Class:                             ELF%d\n", 32);
+	}
+	else
+	{
+		printf("\n  Class:                             ELF%d\n", elf_class);
+	}
+}
+/**
+ *
+ *
+ *
+ *
+ */
+void print_type(int elf_type)
+{
+	char *type_str;
+
 	switch (elf_type)
 	{
 		case ET_NONE:
@@ -60,17 +143,7 @@ void print_elf(Elf64_Ehdr *my_elf_header)
 			type_str = "EXEC (Executable file)";
 	}
 	printf("  Type:                              %s\n", type_str);
-
-	if(my_elf_header->e_ident[EI_CLASS] == ELFCLASS32 && my_elf_header->e_ident[EI_DATA] == ELFDATA2MSB)
-	{
-		printf("  Entry point address:               %#x\n", swapEndian((uint32_t)my_elf_header->e_entry));
-	}
-	else
-	{
-	printf("  Entry point address:               %#lx\n", (my_elf_header->e_ident[EI_CLASS] == ELFCLASS32) ? (uint32_t)my_elf_header->e_entry : my_elf_header->e_entry);
-	}
 }
-
 /**
  *
  *
