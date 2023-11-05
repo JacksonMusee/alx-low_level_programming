@@ -57,7 +57,7 @@ void print_elf(Elf64_Ehdr *my_elf_header)
 			break;
 
 		default:
-			type_str = "Type unkown";
+			type_str = "EXEC (Executable file)";
 	}
 	printf("  Type:                              %s\n", type_str);
 
