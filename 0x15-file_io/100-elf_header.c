@@ -79,38 +79,38 @@ void check_os(int ei_osabi)
 	switch (ei_osabi)
 	{
 		case ELFOSABI_NONE:
-			os_str = "System V";
+			os_str = "UNIX - System V";
 			break;
 
 		case ELFOSABI_HPUX:
-			os_str = "HP-UX";
+			os_str = "UNIX - HP-UX";
 			break;
 
 		case ELFOSABI_NETBSD:
-			os_str = "NetBSD";
+			os_str = "UNIX - NetBSD";
 			break;
 
 		case ELFOSABI_LINUX:
-			os_str = "LINUX";
+			os_str = "UNIX - LINUX";
 			break;
 
 		case ELFOSABI_SOLARIS:
-			os_str = "Solaris";
+			os_str = "UNIX - Solaris";
 			break;
 
 		case ELFOSABI_AIX:
-			os_str = "AIX";
+			os_str = "UNIX - AIX";
 			break;
 
 		case ELFOSABI_IRIX:
-			os_str = "IRIX";
+			os_str = "UNIX - IRIX";
 			break;
 
 		default:
 			os_str = "";
 
 	}
-	printf("  OS/ABI:                            UNIX - %s\n", os_str);
+	printf("  OS/ABI:                            %s\n", os_str);
 }
 /**
  *
