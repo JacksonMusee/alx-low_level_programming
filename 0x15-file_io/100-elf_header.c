@@ -15,10 +15,11 @@ void print_elf(Elf64_Ehdr *my_elf_header)
 	int i;
 	int elf_type = my_elf_header->e_type;
 	int ei_osabi = my_elf_header->e_ident[EI_OSABI];
+	char *type_str;
 
 
 	printf("ELF Header:\n");
-	printf("Magic:	");
+	printf("  Magic:   ");
 
 	for (i = 0; i < EI_NIDENT; i++)
 	{
@@ -27,39 +28,41 @@ void print_elf(Elf64_Ehdr *my_elf_header)
 			printf(" ");
 	}
 
-	printf("\nClass:ELF%d\n", (my_elf_header->e_ident[EI_CLASS] == ELFCLASS64) ? 64 : 32);
-	printf("Data:	%s\n",(my_elf_header->e_ident[EI_DATA] == ELFDATA2LSB) ? "2's complement, little endian" : "2's complement big endian");
-	printf("Version:	%d (current)\n", my_elf_header->e_ident[EI_VERSION]);
+	printf("\n  Class:                             ELF%d\n", (my_elf_header->e_ident[EI_CLASS] == ELFCLASS64) ? 64 : 32);
+	printf("  Data:                              %s\n",(my_elf_header->e_ident[EI_DATA] == ELFDATA2LSB) ? "2's complement, little endian" : "2's complement big endian");
+	printf("  Version:                           %d (current)\n", my_elf_header->e_ident[EI_VERSION]);
 	check_os(ei_osabi);
-	printf("ABI Version:	%d\n", my_elf_header->e_ident[EI_ABIVERSION]);
+	printf("  ABI Version:                       %d\n", my_elf_header->e_ident[EI_ABIVERSION]);
 	
 	switch (elf_type)
 	{
 		case ET_NONE:
-			printf("Type:	ELF type is None\n");
+			type_str = "ELF type is None";
 			break;
 
 		case ET_REL:
-			printf("Type:	REL (Relocatable file type)\n");
+			type_str = "";
+			type_str = "REL (Relocatable file type)";
 			break;
 
 		case ET_EXEC:
-			printf("Type:	EXEC (Executable file)\n");
+			type_str = "EXEC (Executable file)";
 			break;
 
 		case ET_DYN:
-			printf("Type:	DYN (Shared object file)\n");
+			type_str = "DYN (Shared object file)";
 			break;
 
 		case ET_CORE:
-			printf("Type:	CORE (Core file)\n");
+			type_str = "CORE (Core file)";
 			break;
 
 		default:
-			printf("Type:	Type unkown\n");
+			type_str = "Type unkown";
 	}
+	printf("  Type:                              %s\n", type_str);
 
-	printf("Entry point address:	0x%lx\n", my_elf_header->e_entry);
+	printf("  Entry point address:               %#lx\n", my_elf_header->e_entry);
 }
 /**
  *
@@ -108,7 +111,7 @@ void check_os(int ei_osabi)
 			os_str = "";
 
 	}
-	printf("OS/ABI:		UNIX - %s\n", os_str);
+	printf("  OS/ABI:                            UNIX - %s\n", os_str);
 }
 /**
  *
