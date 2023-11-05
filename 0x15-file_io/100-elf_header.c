@@ -1,9 +1,9 @@
 #include "main.h"
 
 /**
+ *print_elf - Print value of an ELF header
  *
- *
- *
+ *@my_elf_header: an elf_header structure populated with data from give ELF
  *
  */
 void print_elf(Elf64_Ehdr *my_elf_header)
@@ -36,10 +36,11 @@ void print_elf(Elf64_Ehdr *my_elf_header)
 	print_entry(elf_class, data, add);
 }
 /**
+ *print_entry - Print the entry address of an ELF file
  *
- *
- *
- *
+ *@elf_class: my_elf_header->e_ident[EI_CLASS];
+ *@data: my_elf_header->e_ident[EI_DATA]
+ *@add: my_elf_header->e_entry
  *
  */
 
@@ -65,9 +66,11 @@ void print_entry(int elf_class, int data, uint64_t add)
 		}
 	}
 }
-/*
+
+/**
+ *print_version - prints version of ELF file and if it's current
  *
- *
+ *@elf_version: value of my_elf_header->e_ident[EI_VERSION]
  *
  */
 void print_version(int elf_version)
@@ -81,10 +84,11 @@ void print_version(int elf_version)
 		printf("  Version:                           %d\n", elf_version);
 	}
 }
+
 /**
+ *print_data - prints if little/big endian
  *
- *
- *
+ *@data: value of my_elf_header->e_ident[EI_DATA]
  */
 void print_data(int data)
 {
@@ -98,10 +102,11 @@ void print_data(int data)
 
 	printf("  Data:                              %s\n", d_str);
 }
+
 /**
+ *print_class - Prints class of an elf file
  *
- *
- *
+ *@elf_class: my_elf_header_ident[EI_CLASS];
  *
  */
 void print_class(int elf_class)
@@ -119,10 +124,11 @@ void print_class(int elf_class)
 		printf("\n  Class:                             ELF%d\n", elf_class);
 	}
 }
+
 /**
+ *print_type - prints type of elf file
  *
- *
- *
+ *@elf_type: my_elf_header->e_type
  *
  */
 void print_type(int elf_type)
@@ -156,13 +162,11 @@ void print_type(int elf_type)
 	}
 	printf("  Type:                              %s\n", type_str);
 }
+
 /**
+ *check_os - Check and print elf OSABI
  *
- *
- *
- *
- *
- *
+ *@ei_osabi: The value of EI_OSABI
  *
  */
 void check_os(int ei_osabi)
@@ -205,15 +209,13 @@ void check_os(int ei_osabi)
 	}
 	printf("  OS/ABI:                            %s\n", os_str);
 }
+
 /**
+ *swapEndian - Reverses a 32-bit addreess
  *
+ *@value: the address to revers
  *
- *
- *
- *
- *
- *
- *
+ *Return: Reversed address
  *
  */
 uint32_t swapEndian(uint32_t value)
@@ -223,15 +225,14 @@ uint32_t swapEndian(uint32_t value)
 		((value << 8) & 0x00FF0000) |
 		((value << 24) & 0xFF000000));
 }
+
 /**
+ *main - entry point
  *
+ *@argc: Augument count
+ *@argv: Argument array
  *
- *
- *
- *
- *
- *
- *
+ *Return: 0 on success
  */
 
 int main(int argc, char *argv[])
