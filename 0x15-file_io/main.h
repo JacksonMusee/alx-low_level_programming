@@ -23,6 +23,7 @@ void print_type(int elf_type);
 void print_class(int elf_class);
 void print_data(int data);
 void print_version(int elf_version);
+void print_entry(int elf_class, int data, uint64_t add);
 
 
 #endif

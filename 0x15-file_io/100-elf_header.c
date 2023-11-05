@@ -16,7 +16,6 @@ void print_elf(Elf64_Ehdr *my_elf_header)
 	int elf_version = my_elf_header->e_ident[EI_VERSION];
 	int abi_version = my_elf_header->e_ident[EI_ABIVERSION];
 	uint64_t add = my_elf_header->e_entry;
-	uint32_t add32;
 
 	printf("ELF Header:\n");
 	printf("  Magic:   ");
@@ -34,14 +33,27 @@ void print_elf(Elf64_Ehdr *my_elf_header)
 	check_os(ei_osabi);
 	printf("  ABI Version:                       %d\n", abi_version);
 	print_type(elf_type);
+	print_entry(elf_class, data, add);
+}
+/**
+ *
+ *
+ *
+ *
+ *
+ */
+
+void print_entry(int elf_class, int data, uint64_t add)
+{
+	uint32_t add32;
 
 	if (elf_class == ELFCLASS32 && data == ELFDATA2MSB)
 	{
-		add32 = swapEndian((uint32_t)my_elf_header->e_entry);
+		add32 = swapEndian((uint32_t)add);
 
 		printf("  Entry point address:               %#x\n", add32);
 	}
-        else
+	else
 	{
 		if (elf_class == ELFCLASS32)
 		{
@@ -204,11 +216,12 @@ void check_os(int ei_osabi)
  *
  *
  */
-uint32_t swapEndian(uint32_t value) {
-    return ((value >> 24) & 0x000000FF) |
-           ((value >> 8) & 0x0000FF00) |
-           ((value << 8) & 0x00FF0000) |
-           ((value << 24) & 0xFF000000);
+uint32_t swapEndian(uint32_t value)
+{
+	return (((value >> 24) & 0x000000FF) |
+		((value >> 8) & 0x0000FF00) |
+		((value << 8) & 0x00FF0000) |
+		((value << 24) & 0xFF000000));
 }
 /**
  *
@@ -221,7 +234,7 @@ uint32_t swapEndian(uint32_t value) {
  *
  */
 
-int main(int argc, char*argv[])
+int main(int argc, char *argv[])
 {
 	const char *elf_filename;
 	int elf_fd;
@@ -232,7 +245,7 @@ int main(int argc, char*argv[])
 		fprintf(stderr, "Error: Usage - elf_header elf_filename");
 		exit(98);
 	}
-	
+
 	elf_filename = argv[1];
 	elf_fd = open(elf_filename, O_RDONLY);
 
@@ -242,7 +255,7 @@ int main(int argc, char*argv[])
 		exit(98);
 	}
 
-	if(read(elf_fd, &my_elf_header, sizeof(Elf64_Ehdr)) != sizeof(Elf64_Ehdr))
+	if (read(elf_fd, &my_elf_header, sizeof(Elf64_Ehdr)) != sizeof(Elf64_Ehdr))
 	{
 		fprintf(stderr, "Error: Can't read %s\n", elf_filename);
 		close(elf_fd);
@@ -255,7 +268,7 @@ int main(int argc, char*argv[])
 		close(elf_fd);
 		exit(98);
 	}
-	
+
 	lseek(elf_fd, 0, SEEK_SET);
 	print_elf(&my_elf_header);
 	close(elf_fd);
