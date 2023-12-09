@@ -50,6 +50,10 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 	{
 		if (temp_h)
 			new_nod->next = temp_h->next;
+
+		if (new_nod->next)
+			new_nod->next->prev = new_nod;
+
 		new_nod->prev = temp_h;
 
 		if (temp_h)
