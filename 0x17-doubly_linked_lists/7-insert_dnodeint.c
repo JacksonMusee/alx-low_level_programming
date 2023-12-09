@@ -13,7 +13,6 @@
 dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 {
 	dlistint_t *new_nod;
-	dlistint_t *new_nod_prev;
 	unsigned int idx_count;
 	dlistint_t *temp_h;
 
@@ -41,21 +40,17 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 	}
 
 	idx_count = 0;
-	while (temp_h != NULL && idx_count < idx)
+	while (temp_h != NULL && idx_count < idx - 1)
 	{
 		idx_count++;
 		temp_h = temp_h->next;
 	}
 
-	if (temp_h && idx_count == idx)
+	if (temp_h && idx_count == idx - 1)
 	{
-		new_nod_prev = temp_h->prev;
-		temp_h->prev = new_nod;
-
-		if (new_nod_prev != NULL)
-			new_nod_prev->next = new_nod;
-		new_nod->prev = new_nod_prev;
-		new_nod->next = temp_h;
+		new_nod->next = temp_h->next;
+		new_nod->prev = temp_h;
+		temp_h->next = new_nod;
 	}
 	else
 	{
