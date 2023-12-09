@@ -41,8 +41,12 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 	}
 	else
 	{
+		free(new_nod);
 		return (NULL);
 	}
+
+	if (idx == 0)
+		*h = new_nod;
 
 	return (new_nod);
 }
