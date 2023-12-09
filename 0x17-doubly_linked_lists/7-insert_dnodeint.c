@@ -36,10 +36,12 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 		temp_h = temp_h->next;
 	}
 
-	if (idx_count == idx)
+	if (temp_h != NULL && idx_count == idx)
 	{
 		new_nod_prev = temp_h->prev;
-		new_nod_prev->next = new_nod;
+
+		if (new_nod_prev != NULL)
+			new_nod_prev->next = new_nod;
 		new_nod->prev = new_nod_prev;
 		new_nod->next = temp_h;
 	}
