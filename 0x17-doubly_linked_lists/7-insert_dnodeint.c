@@ -45,14 +45,15 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 		new_nod->prev = new_nod_prev;
 		new_nod->next = temp_h;
 	}
+	else if ((temp_h == NULL && idx_count == idx) || idx == 0)
+	{
+		*h = new_nod;
+	}
 	else
 	{
 		free(new_nod);
 		return (NULL);
 	}
-
-	if (idx == 0)
-		*h = new_nod;
 
 	return (new_nod);
 }
