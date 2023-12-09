@@ -40,7 +40,7 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 		return (NULL);
 	new_nod = create_nod(n);
 	if (!new_nod)
-		return (NULL)
+		return (NULL);
 
 	temp_h = *h;
 	if (idx == 0)
