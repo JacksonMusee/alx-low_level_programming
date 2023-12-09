@@ -1,5 +1,24 @@
 #include "lists.h"
+/**
+ *create_nod - creates a dlistint_t node
+ *
+ *Return: The created node
+ *
+ */
+dlistint_t *create_nod()
+{
+	dlistint_t *node;
 
+	node = malloc(sizeof(dlistint_t));
+	if (node == NULL)
+		return (NULL);
+
+	node->n = n;
+	node->prev = NULL;
+	node->next = NULL;
+
+	return (node);
+}
 /**
  *insert_dnodeint_at_index - Insert a node at given index
  *
@@ -19,16 +38,8 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 	if (h == NULL)
 		return (NULL);
 
-	new_nod = malloc(sizeof(dlistint_t));
-	if (new_nod == NULL)
-		return (NULL);
-
-	new_nod->n = n;
-	new_nod->prev = NULL;
-	new_nod->next = NULL;
-
+	new_nod = create_nod();
 	temp_h = *h;
-
 	if (idx == 0)
 	{
 		if (temp_h)
@@ -45,26 +56,19 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 		idx_count++;
 		temp_h = temp_h->next;
 	}
-
 	if (idx_count == idx - 1)
 	{
 		if (temp_h)
 			new_nod->next = temp_h->next;
-
+			temp_h->next = new_nod;
 		if (new_nod->next)
 			new_nod->next->prev = new_nod;
-
 		new_nod->prev = temp_h;
-
-		if (temp_h)
-			temp_h->next = new_nod;
 	}
 	else
 	{
-
 		free(new_nod);
 		return (NULL);
 	}
-
 	return (new_nod);
 }
