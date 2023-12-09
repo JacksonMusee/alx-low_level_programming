@@ -2,6 +2,7 @@
 /**
  *create_nod - creates a dlistint_t node
  *
+ *@num: Structure data
  *Return: The created node
  *
  */
@@ -37,8 +38,10 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 
 	if (h == NULL)
 		return (NULL);
-
 	new_nod = create_nod(n);
+	if (!new_nod)
+		return (NULL)
+
 	temp_h = *h;
 	if (idx == 0)
 	{
@@ -49,7 +52,6 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 
 		return (new_nod);
 	}
-
 	idx_count = 0;
 	while (temp_h != NULL && idx_count < idx - 1)
 	{
