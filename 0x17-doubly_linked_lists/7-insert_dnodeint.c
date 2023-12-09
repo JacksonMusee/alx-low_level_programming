@@ -5,7 +5,7 @@
  *Return: The created node
  *
  */
-dlistint_t *create_nod()
+dlistint_t *create_nod(int num)
 {
 	dlistint_t *node;
 
@@ -13,7 +13,7 @@ dlistint_t *create_nod()
 	if (node == NULL)
 		return (NULL);
 
-	node->n = n;
+	node->n = num;
 	node->prev = NULL;
 	node->next = NULL;
 
@@ -38,7 +38,7 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 	if (h == NULL)
 		return (NULL);
 
-	new_nod = create_nod();
+	new_nod = create_nod(n);
 	temp_h = *h;
 	if (idx == 0)
 	{
@@ -56,11 +56,10 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 		idx_count++;
 		temp_h = temp_h->next;
 	}
-	if (idx_count == idx - 1)
+	if (temp_h && idx_count == idx - 1)
 	{
-		if (temp_h)
-			new_nod->next = temp_h->next;
-			temp_h->next = new_nod;
+		new_nod->next = temp_h->next;
+		temp_h->next = new_nod;
 		if (new_nod->next)
 			new_nod->next->prev = new_nod;
 		new_nod->prev = temp_h;
