@@ -14,6 +14,9 @@ void hash_table_print(const hash_table_t *ht)
 	int counter = 0;
 	hash_node_t *head;
 
+	if (ht == NULL)
+		return;
+
 	max_idx = ht->size;
 
 	printf("{");
