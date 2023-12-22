@@ -42,25 +42,26 @@ hash_node_t *create_element(const char *key, const char *value)
 	return (element);
 }
 
- /** 
- *hash_table_set - adds an element to the hash table
- *
- *@ht: Pointer to the hash table
- *@key: Key
- *@value: Value associated with the key
- *
- * Return: 1 on success, 0 otherwise
- */
+/**
+*hash_table_set - adds an element to the hash table
+*
+*@ht: Pointer to the hash table
+*@key: Key
+*@value: Value associated with the key
+*
+*Return: 1 on success, 0 otherwise
+*/
 
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
 	unsigned long int index;
 	hash_node_t *element = create_element(key, value);
 	unsigned long int size = ht->size;
+
 	index = key_index((const unsigned char *)key, size);
 
 	if (index > (size - 1))
-			return (0);
+		return (0);
 
 	if (ht->array[index] == NULL)
 	{
