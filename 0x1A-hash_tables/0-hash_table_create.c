@@ -17,7 +17,12 @@ hash_table_t *hash_table_create(unsigned long int size)
 	if (my_ht == NULL)
 		return (NULL);
 
-	my_ht->array = calloc(size, sizeof(hash_node_t*));
+	my_ht->array = calloc(size, sizeof(hash_node_t *));
+	if (my_ht->array == NULL)
+	{
+		free(my_ht);
+		return (NULL);
+	}
 
 	for (i = 0; i < size; i++)
 		my_ht->array[i] = NULL;
