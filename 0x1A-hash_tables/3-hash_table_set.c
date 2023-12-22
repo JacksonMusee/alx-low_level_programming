@@ -56,7 +56,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
 	unsigned long int index;
 	hash_node_t *element = create_element(key, value);
-	unsigned long int size = ht->size;
+	unsigned long int size = ht->size / sizeof(hash_node_t *);
 	index = key_index((const unsigned char *)key, size);
 
 	if (index > (size - 1))
