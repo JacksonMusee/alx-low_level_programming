@@ -60,7 +60,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	unsigned long int size;
 
 	element = create_element(key, value);
-	if (element == NULL)
+	if (ht == NULL || element == NULL)
 		return (0);
 
 	size = ht->size;
