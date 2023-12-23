@@ -81,7 +81,6 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 			if (strcmp(cur_nod->key, element->key) == 0)
 			{
 				cur_nod->value = element->value;
-				break;
 				return (1);
 			}
 			cur_nod = cur_nod->next;
