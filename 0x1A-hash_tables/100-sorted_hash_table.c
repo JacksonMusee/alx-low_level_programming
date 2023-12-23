@@ -100,7 +100,6 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 
 	size = ht->size;
 	index = key_index((const unsigned char *)key, size);
-
 	if (ht->array[index] == NULL)
 	{
 		ht->array[index] = selement;
@@ -121,14 +120,56 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 		ht->array[index] = selement;
 	}
 	if (ht->shead == NULL)
+	{
 		ht->shead = selement;
-
-	if (ht->stail)
-		ht->stail->snext = selement;
-	selement->sprev = ht->stail;
-	ht->stail = selement;
-
+		ht->stail = selement;
+	}
+	else
+	{
+		set_helper(ht, selement);
+	}
 	return (1);
+}
+
+/**
+ *set_helper - Helps inserting a node n ordered list
+ *
+ *@ht: Ordered hash table
+ *@selement: element to insert
+ *
+ */
+void set_helper(shash_table_t *ht, shash_node_t *selement)
+{
+	shash_node_t *temp = NULL;
+	shash_node_t *r_stail = ht->stail;
+
+	while (r_stail && ((int)*(r_stail->key) > (int)*(selement->key)))
+	{
+		temp = r_stail;
+		r_stail = r_stail->sprev;
+	}
+
+	if (r_stail)
+	{
+		selement->snext = temp;
+
+		if (temp)
+			temp->sprev = selement;
+
+		r_stail->snext = selement;
+		selement->sprev = r_stail;
+
+		if (temp == NULL)
+		{
+			ht->stail = selement;
+		}
+	}
+	else
+	{
+		selement->snext = temp;
+		temp->sprev = selement;
+		ht->shead = selement;
+	}
 }
 
 /**
