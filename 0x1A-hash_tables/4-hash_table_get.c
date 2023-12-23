@@ -1,13 +1,12 @@
 #include "hash_tables.h"
 
 /**
- *hash_node_t - retrieves a value associated with a key
+ *hash_table_get - retrieves a value associated with a key
  *
  *@ht: Pointer to hash table
  *@key: The key
  *
- * Return: The value associated with the element,
- *or NULL if key couldn’t be found
+ * Return: The value associated with the element
  */
 
 char *hash_table_get(const hash_table_t *ht, const char *key)
