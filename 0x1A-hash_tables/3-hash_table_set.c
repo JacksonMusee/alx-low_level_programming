@@ -14,17 +14,17 @@ hash_node_t *create_element(const char *key, const char *value)
 	hash_node_t *element;
 
 	if (strlen(key) == 0)
-		return (0);
+		return (NULL);
 
 	element = malloc(sizeof(hash_node_t));
 	if (element == NULL)
-		return (0);
+		return (NULL);
 
 	element->key = malloc(strlen(key) + 1);
 	if (element->key == NULL)
 	{
 		free(element);
-		return (0);
+		return (NULL);
 	}
 
 	element->value = malloc(strlen(value) + 1);
@@ -32,7 +32,7 @@ hash_node_t *create_element(const char *key, const char *value)
 	{
 		free(element->key);
 		free(element);
-		return (0);
+		return (NULL);
 	}
 
 	strcpy(element->key, key);
@@ -55,9 +55,15 @@ hash_node_t *create_element(const char *key, const char *value)
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
 	unsigned long int index;
-	hash_node_t *element = create_element(key, value);
-	unsigned long int size = ht->size;
+	hash_node_t *element;
+	hash_node_t *cur_nod;
+	unsigned long int size;
 
+	element = create_element(key, value);
+	if (element == NULL)
+		return (0);
+
+	size = ht->size;
 	index = key_index((const unsigned char *)key, size);
 
 	if (index > (size - 1))
@@ -69,6 +75,17 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	}
 	else
 	{
+		cur_nod = ht->array[index];
+		while (cur_nod)
+		{
+			if (strcmp(cur_nod->key, element->key) == 0)
+			{
+				cur_nod->value = element->value;
+				break;
+				return (1);
+			}
+			cur_nod = cur_nod->next;
+		}
 		element->next = ht->array[index];
 		ht->array[index] = element;
 	}
