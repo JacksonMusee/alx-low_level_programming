@@ -101,9 +101,6 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 	size = ht->size;
 	index = key_index((const unsigned char *)key, size);
 
-	if (index > (size - 1))
-		return (0);
-
 	if (ht->array[index] == NULL)
 	{
 		ht->array[index] = selement;
@@ -123,14 +120,12 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 		selement->next = ht->array[index];
 		ht->array[index] = selement;
 	}
-
 	if (ht->shead == NULL)
 		ht->shead = selement;
 
 	if (ht->stail)
 		ht->stail->snext = selement;
 	selement->sprev = ht->stail;
-
 	ht->stail = selement;
 
 	return (1);
@@ -211,24 +206,24 @@ void shash_table_print(const shash_table_t *ht)
  */
 void shash_table_print_rev(const shash_table_t *ht)
 {
-        shash_node_t *tail;
+	shash_node_t *tail;
 
-        if (ht == NULL)
-                return;
+	if (ht == NULL)
+		return;
 
-        printf("{");
+	printf("{");
 
-        tail = ht->stail;
+	tail = ht->stail;
 
-        while (tail)
-        {       
-                printf("'%s': '%s'", tail->key, tail->value);
-                if (tail->sprev)
-                        printf(", ");
+	while (tail)
+	{
+		printf("'%s': '%s'", tail->key, tail->value);
+		if (tail->sprev)
+			printf(", ");
 
-                tail = tail->sprev;
-        }       
-        printf("}\n");
+		tail = tail->sprev;
+	}
+	printf("}\n");
 }
 
 /**
