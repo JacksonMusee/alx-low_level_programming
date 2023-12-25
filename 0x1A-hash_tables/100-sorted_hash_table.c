@@ -147,32 +147,27 @@ void set_helper(shash_table_t *ht, shash_node_t *selement)
 	int new_key_ch = toupper((int)*(new_key_cp));
 	int tail_ch = toupper((int)*(tail_key_cp));
 
-	while (r_stail && (tail_ch >= new_key_ch))
-	{
-		if (tail_ch == new_key_ch)
-		{
+	while (r_stail && (tail_ch >= new_key_ch)) {
+		if (tail_ch == new_key_ch) {
 			tail_ch = toupper((int)*(tail_key_cp++));
 			new_key_ch = toupper((int)*(new_key_cp++));
 			continue;
 		}
 		temp = r_stail;
 		r_stail = r_stail->sprev;
-		if (r_stail)
-		{
+		if (r_stail) {
 			tail_key_cp = strdup(r_stail->key);
 			new_key_cp = strdup(selement->key);
 			tail_ch = toupper((int)*(tail_key_cp));
 			new_key_ch = toupper((int)*(new_key_cp));
 		}
 	}
-	if (r_stail == NULL)
-	{
-		 selement->snext = temp;
-		 temp->sprev = selement;
-		 ht->shead = selement;
+	if (r_stail == NULL) {
+		selement->snext = temp;
+		temp->sprev = selement;
+		ht->shead = selement;
 	}
-	else
-	{
+	else {
 		selement->snext = temp;
 		if (temp != NULL)
 			temp->sprev = selement;
