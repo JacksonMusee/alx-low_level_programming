@@ -142,9 +142,17 @@ void set_helper(shash_table_t *ht, shash_node_t *selement)
 {
 	shash_node_t *temp = NULL;
 	shash_node_t *r_stail = ht->stail;
+	char *new_key = selement->key;
+	char *tail_key = r_stail->key;
 
-	while (r_stail && ((int)*(r_stail->key) >= (int)*(selement->key)))
+	while (r_stail && ((int)*tail_key >= (int)*new_key))
 	{
+		if ((int)*tail_key == (int)*new_key)
+		{
+			tail_key++;
+			new_key++;
+			continue;
+		}
 		temp = r_stail;
 		r_stail = r_stail->sprev;
 	}
