@@ -142,41 +142,44 @@ void set_helper(shash_table_t *ht, shash_node_t *selement)
 {
 	shash_node_t *temp = NULL;
 	shash_node_t *r_stail = ht->stail;
-	char *new_key = selement->key;
-	char *tail_key = r_stail->key;
+	char *new_key_cp = strdup(selement->key);
+	char *tail_key_cp = strdup(r_stail->key);
+	int new_key_ch = toupper((int)*(new_key_cp));
+	int tail_ch = toupper((int)*(tail_key_cp));
 
-	while (r_stail && ((int)*tail_key >= (int)*new_key))
+	while (r_stail && (tail_ch >= new_key_ch))
 	{
-		if ((int)*tail_key == (int)*new_key)
+		if (tail_ch == new_key_ch)
 		{
-			tail_key++;
-			new_key++;
+			tail_ch = toupper((int)*(tail_key_cp++));
+			new_key_ch = toupper((int)*(new_key_cp++));
 			continue;
 		}
 		temp = r_stail;
 		r_stail = r_stail->sprev;
-	}
-
-	if (r_stail)
-	{
-		selement->snext = temp;
-
-		if (temp)
-			temp->sprev = selement;
-
-		r_stail->snext = selement;
-		selement->sprev = r_stail;
-
-		if (temp == NULL)
+		if (r_stail)
 		{
-			ht->stail = selement;
+			tail_key_cp = strdup(r_stail->key);
+			new_key_cp = strdup(selement->key);
+			tail_ch = toupper((int)*(tail_key_cp));
+			new_key_ch = toupper((int)*(new_key_cp));
 		}
+	}
+	if (r_stail == NULL)
+	{
+		 selement->snext = temp;
+		 temp->sprev = selement;
+		 ht->shead = selement;
 	}
 	else
 	{
 		selement->snext = temp;
-		temp->sprev = selement;
-		ht->shead = selement;
+		if (temp != NULL)
+			temp->sprev = selement;
+		r_stail->snext = selement;
+		selement->sprev = r_stail;
+		if (temp == NULL)
+			ht->stail = selement;
 	}
 }
 
